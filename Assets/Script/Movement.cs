@@ -2,38 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour{
+public class Movement : MonoBehaviour {
+    public float initSpeed;
+    public SwipeManager swipeManager;
+    int lane = 1;
 
-    public float movementSpeed;
-    public SwipeManager swipe;
-    private int desiredLane = 1;
-
-    void Start()    {
-        
+    private float speed;
+    void Start() {
+        speed = initSpeed;
     }
 
-    // Update is called once per frame
-    void Update(){
-        transform.position += transform.TransformDirection(Vector3.forward) * Time.fixedDeltaTime * 1.5f;
+    void Update() {
+        gameObject.transform.Translate(new Vector3(0, 0, speed));
+        SwipeManager.Direction dir = swipeManager.GetDirection();
 
-        /*if (swipe.SwipeUp || (Input.GetKey("w") && !Input.GetKey("s"))){
-            transform.position += transform.TransformDirection(Vector3.forward) * movementSpeed * 6.5f;
-
-        }else if (swipe.SwipeDown || (Input.GetKey("s") && !Input.GetKey("w"))){
-            transform.position -= transform.TransformDirection(Vector3.forward) * movementSpeed * 6.5f;
-        }*/
-
-        if (swipe.SwipeLeft || (Input.GetKey("a") && !Input.GetKey("d"))){
-            if (desiredLane != 0){
-                transform.position += transform.TransformDirection(Vector3.left) * movementSpeed * 2.5f;
-                desiredLane--;
-            }
-
-        }else if (swipe.SwipeRight || (Input.GetKey("a") && !Input.GetKey("d"))){
-            if (desiredLane != 2){
-                transform.position -= transform.TransformDirection(Vector3.left) * movementSpeed * 2.5f;
-                desiredLane++;
-            }
+        switch (dir) {
+            case SwipeManager.Direction.Left:
+                if(lane != 0) {
+                    gameObject.transform.Translate(Vector3.left * 2.5F);
+                    lane--;
+                }
+                break;
+            case SwipeManager.Direction.Right:
+                if(lane != 2) {
+                    gameObject.transform.Translate(Vector3.right * 2.5F);
+                    lane++;
+                }
+                break;
         }
     }
 }

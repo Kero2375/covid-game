@@ -2,101 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipeManager : MonoBehaviour
-{
+public class SwipeManager : MonoBehaviour {
+    public enum Direction { None, Left, Right, Up, Down };
 
-    private bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
-    private bool isDraging = false;
-    private Vector2 startTouch, swipeDelta;
+    Vector2 startPos, endPos;
+    Direction direction = Direction.None;
 
-    private void Update()
-    {
-        tap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+    void Update() {
+        if (Input.touchCount > 0) {
+            Touch t = Input.GetTouch(0);
 
-        //Standalone Input
-        if (Input.GetMouseButtonDown(0))
-        {
-            tap = true;
-            isDraging = true;
-            startTouch = Input.mousePosition;
+            if (t.phase == TouchPhase.Began) {
+                startPos = t.position;
+            } else if (t.phase == TouchPhase.Ended || t.phase == TouchPhase.Canceled) {
+                endPos = t.position;
+
+                Vector2 delta = endPos - startPos;
+
+                // se ho fatto più swipe sull'asse x
+                if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y)) {
+                    //destra o sinistra?
+                    if (delta.x < 0F) {
+                        direction = Direction.Left;
+                    } else {
+                        direction = Direction.Right;
+                    }
+                } else {
+                    if (delta.y < 0F) {
+                        direction = Direction.Down;
+                    } else {
+                        direction = Direction.Up;
+                    }
+                }
+            } else {
+                direction = Direction.None;
+            }
+        } else {
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                direction = Direction.Left;
+            } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                direction = Direction.Right;
+            } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                direction = Direction.Down;
+            } else if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                direction = Direction.Up;
+            } else {
+                direction = Direction.None;
+            }    
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            isDraging = false;
-            Reset();
-        }
-
-        //Mobile Input
-        if (Input.touches.Length > 0)
-        {
-            if (Input.touches[0].phase == TouchPhase.Began)
-            {
-                tap = true;
-                isDraging = true;
-                startTouch = Input.touches[0].position;
-            }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-            {
-                isDraging = false;
-                Reset();
-            }
-        }
-
-        //Calculate the distance
-        swipeDelta = Vector2.zero;
-        if (isDraging)
-        {
-            if (Input.touches.Length > 0)
-            {
-                swipeDelta = Input.touches[0].position - startTouch;
-            }
-            else if (Input.GetMouseButton(0))
-            {
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
-            }
-        }
-        //Did we cross the deadzone?
-
-        if (swipeDelta.magnitude > 125)
-        {
-            //Stiamo facendo lo swipe, quale direzione?
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-            if (Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                //Left or right
-                if (x < 0)
-                    swipeLeft = true;
-                else
-                    swipeRight = true;
-            }
-            else
-            {
-                //Up or down
-                if (y < 0)
-                    swipeDown = true;
-                else
-                    swipeUp = true;
-            }
-            Reset();
-        }
-
     }
 
-
-    private void Reset()
-    {
-        startTouch = Vector2.zero;
-        isDraging = false;
+    public Direction GetDirection() {
+        return direction;
     }
-
-    public Vector2 SwipeDelta { get { return swipeDelta; } }
-    public bool SwipeLeft { get { return swipeLeft; } }
-    public bool SwipeRight { get { return swipeRight; } }
-    public bool SwipeUp { get { return swipeUp; } }
-    public bool SwipeDown { get { return swipeDown; } }
-
-
-
-
 }

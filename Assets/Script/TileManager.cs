@@ -2,39 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileManager : MonoBehaviour{
-
+public class TileManager : MonoBehaviour {
     public GameObject[] tilePrefabs;
-    public float zSpawn = 0;
-    private float tileLength = 23;
-    private int numberOfTiles = 3;
+    public Transform player;
 
-    private List<GameObject> activeTiles = new List<GameObject>();
+    private List<GameObject> tiles = new List<GameObject>();
 
-    public Transform playerTransform;
+    void Start() {
+        InitSpawn();
+    }
 
-    void Start(){
-        for(int i = 0; i < numberOfTiles; i++){
-            SpawnTile(0);
+    void Update() {
+        if (player.position.z > tiles[tiles.Count - 2].transform.position.z) {
+            Spawn();
         }
     }
 
-    // Update is called once per frame
-    void Update(){
-        if(playerTransform.position.z - 23 > zSpawn - (numberOfTiles * tileLength)){
-            SpawnTile(0);
-            DeleteTile();
-        }
+    void Spawn() {
+        GameObject newTile = Instantiate(tiles[tiles.Count - 1]);
+        newTile.transform.Translate(0, 0, 60);
+        newTile.name = "Road";
+        tiles.Add(newTile);
+
+        Destroy(tiles[0]);
+        tiles.RemoveAt(0);
     }
 
-    private void DeleteTile(){
-        Destroy(activeTiles[0]);
-        activeTiles.RemoveAt(0);
-    }
+    void InitSpawn() {
+        //1
+        GameObject newTile = Instantiate(tilePrefabs[0]);
+        tiles.Add(newTile);
 
-    public void SpawnTile(int tileIndex){
-        GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn , transform.rotation);
-        activeTiles.Add(go);
-        zSpawn += tileLength;
+        //2
+        GameObject newTile2 = Instantiate(tilePrefabs[0]);
+        newTile2.transform.Translate(0, 0, 60);
+        tiles.Add(newTile2);
+
+        //3
+        GameObject newTile3 = Instantiate(tilePrefabs[0]);
+        newTile3.transform.Translate(0, 0, 120);
+        tiles.Add(newTile3);
+
     }
 }
