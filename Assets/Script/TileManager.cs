@@ -5,11 +5,14 @@ using UnityEngine;
 public class TileManager : MonoBehaviour {
     public GameObject[] tilePrefabs;
     public Transform player;
+    public float tileLenght = 60;
 
     private List<GameObject> tiles = new List<GameObject>();
 
     void Start() {
-        InitSpawn();
+        for (int i = 0; i < 2; i++) {
+            Spawn();
+        }
     }
 
     void Update() {
@@ -19,29 +22,22 @@ public class TileManager : MonoBehaviour {
     }
 
     void Spawn() {
-        GameObject newTile = Instantiate(tiles[tiles.Count - 1]);
-        newTile.transform.Translate(0, 0, 60);
+        GameObject newTile;
+        if (tiles.Count == 0) { 
+            //Se non ho tiles, istanzio il primo (base)
+            newTile = Instantiate(tilePrefabs[0]);
+        } else { 
+            //Altrimenti, copio il precedente
+            newTile = Instantiate(tiles[tiles.Count - 1]);
+            newTile.transform.Translate(0, 0, tileLenght); //sposto in avanti
+        }
         newTile.name = "Road";
-        tiles.Add(newTile);
+        tiles.Add(newTile); //aggiungo alla lista
 
-        Destroy(tiles[0]);
-        tiles.RemoveAt(0);
-    }
-
-    void InitSpawn() {
-        //1
-        GameObject newTile = Instantiate(tilePrefabs[0]);
-        tiles.Add(newTile);
-
-        //2
-        GameObject newTile2 = Instantiate(tilePrefabs[0]);
-        newTile2.transform.Translate(0, 0, 60);
-        tiles.Add(newTile2);
-
-        //3
-        GameObject newTile3 = Instantiate(tilePrefabs[0]);
-        newTile3.transform.Translate(0, 0, 120);
-        tiles.Add(newTile3);
-
+        //Se ho più di 3 tiles, cancello il più vecchio
+        if (tiles.Count > 3) {
+            Destroy(tiles[0]);
+            tiles.RemoveAt(0);
+        }
     }
 }

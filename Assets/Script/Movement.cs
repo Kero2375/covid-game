@@ -29,6 +29,19 @@ public class Movement : MonoBehaviour {
                     lane++;
                 }
                 break;
+            case SwipeManager.Direction.Up:
+                Jump();
+                break;
         }
+    }
+
+    void Jump() {
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 300, 0));
+        gameObject.GetComponent<Animator>().SetBool("jumping", true);
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        Debug.Log(collision.collider);
+        gameObject.GetComponent<Animator>().SetBool("jumping", false);
     }
 }
