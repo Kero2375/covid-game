@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
     public float initSpeed;
     public SwipeManager swipeManager;
+    
     int lane = 1;
 
     private float speed;

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     private int points;
 
     private void Start() {
+        Time.timeScale = 1;
         for (int i = 0; i < 3; i++) {
             hearts[i] = GameObject.Find("Heart " + i);
         }
@@ -29,7 +30,6 @@ public class GameManager : MonoBehaviour {
 
     public void resetScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;
     }
 
     public void Hit() {

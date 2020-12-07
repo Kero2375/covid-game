@@ -519,7 +519,9 @@ MonoBehaviour:
   - {fileID: 3520478565088018051, guid: 7758ce52523feae428dbb2ec4e1272a2, type: 3}
   - {fileID: 4708138588735693007, guid: 16e914e0959d02b449086bccdd4dfb09, type: 3}
   playerTransform: {fileID: 1182320691}
-  minDistance: 60
+  minDistanceFromPlayer: 60
+  minDistanceFromPrefabs: 10
+  lastDistance: 0
 --- !u!4 &548811625
 Transform:
   m_ObjectHideFlags: 0
