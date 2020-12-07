@@ -39,8 +39,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6663846682413864596}
+  - component: {fileID: 1865615395988387135}
   m_Layer: 0
-  m_Name: Assembramento (1)
+  m_Name: Assembramento 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 3520478565088018051}
   m_LocalRotation: {x: -0, y: 0.9762146, z: -0, w: 0.21680667}
   m_LocalPosition: {x: -7.8, y: 1.262208, z: -8.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 5396667352262264126}
   - {fileID: 5396667353181044607}
@@ -65,6 +66,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1865615395988387135
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520478565088018051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.5111477
+  m_Height: 5.022297
+  m_Direction: 1
+  m_Center: {x: -0.5593903, y: 2.4548411, z: 1.748714}
 --- !u!1 &4017830649893002937
 GameObject:
   m_ObjectHideFlags: 0

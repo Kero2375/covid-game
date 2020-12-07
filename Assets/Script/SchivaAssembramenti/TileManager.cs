@@ -6,6 +6,7 @@ public class TileManager : MonoBehaviour {
     public GameObject[] tilePrefabs;
     public Transform player;
     public float tileLenght = 60;
+    public GameManager gameManager;
 
     private List<GameObject> tiles = new List<GameObject>();
 
@@ -22,13 +23,16 @@ public class TileManager : MonoBehaviour {
     }
 
     void Spawn() {
+
         GameObject newTile;
         if (tiles.Count == 0) { 
             //Se non ho tiles, istanzio il primo (base)
             newTile = Instantiate(tilePrefabs[0]);
-        } else { 
-            //Altrimenti, copio il precedente
-            newTile = Instantiate(tiles[tiles.Count - 1]);
+        } else {
+            //Altrimenti, copio uno a random
+            int index = Random.Range(0, tilePrefabs.Length);
+            newTile = Instantiate(tilePrefabs[index]);
+            newTile.transform.position = tiles[tiles.Count - 1].transform.position; //copio la posizione del precedente
             newTile.transform.Translate(0, 0, tileLenght); //sposto in avanti
         }
         newTile.name = "Road";
@@ -38,6 +42,8 @@ public class TileManager : MonoBehaviour {
         if (tiles.Count > 3) {
             Destroy(tiles[0]);
             tiles.RemoveAt(0);
+            //Incrementa il punteggio
+            gameManager.AddPoints();
         }
     }
 }
