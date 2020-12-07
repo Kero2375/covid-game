@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour {
 
     void Spawn() {
         GameObject newObstacle = Instantiate(obstaclePrefabs[0]);
-
+        newObstacle.name = "Assembramento";
         float randomDistance = minDistance + Random.Range(0, 30);
         float[] lanes = { -2.5F, 0F, 2.5F };
         float randomLane = lanes[Random.Range(0, 2)];

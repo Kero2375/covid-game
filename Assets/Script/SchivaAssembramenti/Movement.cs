@@ -11,11 +11,17 @@ public class Movement : MonoBehaviour {
     private bool moving = false;
     private bool jumping = false;
 
+    int life = 3;
+
     void Start() {
         speed = initSpeed;
     }
 
     void Update() {
+        //Se perdo le vite fermo il gioco
+        if(life == 0) {
+            Time.timeScale = 0;
+        }
         gameObject.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
         SwipeManager.Direction dir = swipeManager.GetDirection();
 
@@ -62,8 +68,16 @@ public class Movement : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
+        if(collision.collider.name == "Assembramento") {
+            life--;
+            Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 5);
+            gameObject.transform.position = pos;
+           
+        }
+
         jumping = false;
         gameObject.GetComponent<Animator>().SetBool("jumping", jumping);
+        
     }
 
     
