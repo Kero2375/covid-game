@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < 3; i++) {
             hearts[i] = GameObject.Find("Heart " + i);
         }
-        life = 1;
+        life = 3;
         points = 0;
     }
 
