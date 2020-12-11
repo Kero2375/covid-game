@@ -1107,6 +1107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 2067417776}
+  spawnManager: {fileID: 548811624}
+  movement: {fileID: 1182320692}
 --- !u!4 &1306974016
 Transform:
   m_ObjectHideFlags: 0
@@ -1719,3 +1721,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
+  spawnManager: {fileID: 0}
+  movement: {fileID: 0}

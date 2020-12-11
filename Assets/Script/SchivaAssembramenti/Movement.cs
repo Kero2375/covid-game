@@ -69,5 +69,9 @@ public class Movement : MonoBehaviour {
         }
     }
 
+    public void increaseSpeed() {
+        speed += 0.2F;
+    }
+
     
 }

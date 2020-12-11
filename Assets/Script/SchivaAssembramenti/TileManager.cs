@@ -9,7 +9,7 @@ public class TileManager : MonoBehaviour {
     public GameManager gameManager;
 
     private List<GameObject> tiles = new List<GameObject>();
-
+    private int counter = 10;
     void Start() {
         for (int i = 0; i < 2; i++) {
             Spawn();
@@ -44,6 +44,14 @@ public class TileManager : MonoBehaviour {
             tiles.RemoveAt(0);
             //Incrementa il punteggio
             gameManager.AddPoints();
+            gameManager.SpeedUpdate();
         }
+        if(counter == 0) {
+            gameManager.SpawnUpdate();
+            counter = 10;
+        } else {
+            counter--;
+        }
+
     }
 }

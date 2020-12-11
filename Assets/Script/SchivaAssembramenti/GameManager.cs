@@ -6,14 +6,17 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-
     private int life;
     private int points;
     private GameObject[] hearts = new GameObject[3];
 
     private List<string> morals = new List<string>();
     private int moralIndex;
+
     public GameObject gameOver;
+    public SpawnManager spawnManager;
+    public Movement movement;
+
 
 
     private void Start() {
@@ -31,10 +34,8 @@ public class GameManager : MonoBehaviour {
         //Se perdo le vite fermo il gioco
         if (life == 0) {
             Time.timeScale = 0;
-            
             gameOver.SetActive(true);
             gameOver.transform.GetChild(1).GetComponent<Text>().text = morals[moralIndex];
-
         }
     }
 
@@ -47,6 +48,14 @@ public class GameManager : MonoBehaviour {
         hearts[life].SetActive(false);
     }
 
+    public void SpeedUpdate() {
+        movement.increaseSpeed();
+    }
+
+    public void SpawnUpdate() {
+        spawnManager.reduceSpawingRate();
+    }
+
     public void AddPoints() {
         points++;
         gameOver.transform.GetChild(2).GetComponent<Text>().text = "Punti guadagnati: " + points;
@@ -54,7 +63,7 @@ public class GameManager : MonoBehaviour {
 
     private void PopulateMorals() {
         morals.Add("Ricorda di evitare i contatti ravvicinati mantenendo la distanza di almeno un metro");
-        morals.Add("Mi raccomando, indossa sempre la mascherina, serve per limitare la diffusione");
+        morals.Add("Indossa sempre la mascherina, serve per limitare la diffusione");
         morals.Add("Indossa la mascherina correttamente coprendo bene mento, bocca e naso");
         morals.Add("Evita abbracci e strette di mano");
         morals.Add("Non toccarti occhi, naso e bocca con le mani");
