@@ -7,16 +7,13 @@ public class SpawnManager : MonoBehaviour {
     List<GameObject> obstacles = new List<GameObject>();
     public Transform playerTransform;
 
-    public float minDistanceFromPlayer = 60; //minima distanza dello spawn dal player
-    public float minDistanceFromPrefabs = 10;
-    public float lastDistance;
+    public float distanceFromPlayer = 60; //minima distanza dello spawn dal player
+    public float lineX;
 
     private float spawningRate = 3F;
-    float timer;
 
 
     void Start() {
-        lastDistance = 0;
         //InvokeRepeating("Spawn", 0, spawningRate);
         Invoke("Spawn", spawningRate);
     }
@@ -27,7 +24,6 @@ public class SpawnManager : MonoBehaviour {
             Destroy(obstacles[0]);
             obstacles.RemoveAt(0);
         }
-    
     }
     
     public void reduceSpawingRate() {
@@ -38,30 +34,30 @@ public class SpawnManager : MonoBehaviour {
     }
 
     void Spawn() {
-        int index = Random.Range(0, obstaclePrefabs.Length);
-        GameObject newObstacle = Instantiate(obstaclePrefabs[index]);
-        if (index == 2) {
-            newObstacle.name = "Tombino";
-        } else {
-            newObstacle.name = "Assembramento";
+        float[] lanes = { -lineX, 0F, lineX };
+        int lastIndex = -1;
+
+        for(int i=0; i<=Random.Range(0,2); i++) {
+            int index = Random.Range(0, obstaclePrefabs.Length);
+            GameObject newObstacle = Instantiate(obstaclePrefabs[index]);
+            newObstacle.name = "Ostacolo";
+
+            int laneIndex;
+            do {
+                laneIndex = Random.Range(0, 2);
+            } while (laneIndex == lastIndex);
+            lastIndex = laneIndex;
+
+            Vector3 pos = new Vector3(
+                lanes[laneIndex],
+                playerTransform.position.y,
+                playerTransform.position.z + distanceFromPlayer + Random.Range(-10,10));
+
+            
+            newObstacle.transform.position = pos;
+            newObstacle.transform.Rotate(0, Random.Range(0, 360), 0);
+            obstacles.Add(newObstacle);
         }
-        
-        float randomDistance = minDistanceFromPlayer + Random.Range(0, 30);
-
-        float[] lanes = { -2.5F, 0F, 2.5F };
-        float randomLane = lanes[Random.Range(0, 2)];
-
-      
-        
-        Vector3 pos = new Vector3(
-            randomLane,
-            playerTransform.position.y,
-            playerTransform.position.z + randomDistance);
-
-        newObstacle.transform.position = pos;
-        newObstacle.transform.Rotate(0, Random.Range(0, 360), 0);
-        obstacles.Add(newObstacle);
-        lastDistance = pos.z;
         
         Invoke("Spawn", spawningRate);
     }

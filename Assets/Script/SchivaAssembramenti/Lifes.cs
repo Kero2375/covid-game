@@ -6,7 +6,7 @@ public class Lifes : MonoBehaviour {
     public GameManager gameManager;
 
     private void OnTriggerEnter(Collider other) {
-        if (other.name == "Assembramento") {
+        if (other.name == "Ostacolo") {
             gameManager.Hit();
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
     public float initSpeed;
+    public float lineX;
     public SwipeManager swipeManager;
     
     int lane = 1;
@@ -45,18 +46,18 @@ public class Movement : MonoBehaviour {
         float posX = gameObject.transform.position.x;
         float rotY = gameObject.transform.rotation.y;
         //Se sto andando alla lane n e ci sono arrivato (pos </> qualcosa)
-        if ((lane == 0 && posX < -2.5F) ||
+        if ((lane == 0 && posX < -lineX) ||
             (lane == 1 && (
                 (posX < 0 && rotY < 0F) ||  //sto arrivando da destra
                 (posX > 0 && rotY > 0F))) || //sto arrivando da sinistra
-            (lane == 2 && posX > 2.5F)) {
+            (lane == 2 && posX > lineX)) {
             //Ferma il movimento
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
             moving = false;
         }
     }
 
-    void Jump() {
+    public void Jump() {
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 300, 0));
         jumping = true;
         gameObject.GetComponent<Animator>().SetBool("jumping", jumping);
