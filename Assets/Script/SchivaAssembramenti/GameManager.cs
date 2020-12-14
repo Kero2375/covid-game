@@ -14,10 +14,8 @@ public class GameManager : MonoBehaviour {
     private int moralIndex;
 
     public GameObject gameOver;
-    public SpawnManager spawnManager;
+    public ObstaclesManager spawnManager;
     public Movement movement;
-
-
 
     private void Start() {
         PopulateMorals();
@@ -55,10 +53,6 @@ public class GameManager : MonoBehaviour {
     public void SpeedUpdate() {
         movement.IncreaseSpeed();
     }
-
-    /*public void SpawnUpdate() {
-        spawnManager.reduceSpawingRate();
-    }*/
 
     public void AddPoints() {
         points++;

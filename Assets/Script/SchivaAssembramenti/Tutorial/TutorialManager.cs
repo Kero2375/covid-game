@@ -31,7 +31,7 @@ public class TutorialManager : MonoBehaviour {
                 popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso sinistra per schivare l'assembramento";
 
                 //Animazione mano
-                hand.transform.Rotate(new Vector3(0, 0, -.2F)); //inizia la rotazione della mano
+                hand.transform.Rotate(new Vector3(0, 0, -30 * Time.unscaledDeltaTime)); //inizia la rotazione della mano
                 if (hand.transform.rotation.z <= -.3F) { //ruota fino a -0.3
                     hand.transform.rotation = new Quaternion(); //resetta la rotazione
                 }
@@ -63,7 +63,7 @@ public class TutorialManager : MonoBehaviour {
                 hand.SetActive(true);
                 popup.SetActive(true);
                 popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso destra per schivare l'assembramento";
-                hand.transform.Rotate(new Vector3(0, 0, .2F));
+                hand.transform.Rotate(new Vector3(0, 0, 30 * Time.unscaledDeltaTime));
                 if (hand.transform.rotation.z >= .3F) {
                     hand.transform.rotation = new Quaternion();
                 }
@@ -90,7 +90,7 @@ public class TutorialManager : MonoBehaviour {
                 hand.SetActive(true);           
                 popup.SetActive(true);
                 popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso l'alto per saltare il tombino";
-                hand.transform.Translate(new Vector3(0, 1, 0));
+                hand.transform.Translate(new Vector3(0, 80 * Time.unscaledDeltaTime, 0));
                 if (hand.GetComponent<RectTransform>().anchoredPosition.y >= 250F) {
                     hand.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
                 }
@@ -120,7 +120,7 @@ public class TutorialManager : MonoBehaviour {
 
     private IEnumerator waitLoadScene() {
         //Aspetto 4 secondi e carico la nuova scena
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("SchivaAssembramentiScene", LoadSceneMode.Single);
     }
 

@@ -76,6 +76,6 @@ public class Movement : Swipable {
     }
 
     public void IncreaseSpeed() {
-        speed += 0.2F;
+        speed += 0.5F;
     }
 }
