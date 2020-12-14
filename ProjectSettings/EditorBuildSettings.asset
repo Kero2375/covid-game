@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SchermataIniziale.unity
+    guid: f80b058868b2b4740af6fbdf6c65e3b1
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/SchivaAssembramentiTutorial.unity
+    guid: 674dd251307e2f241b6f2302c14e7bdd
+  - enabled: 1
+    path: Assets/Scenes/SchivaAssembramentiScene.unity
+    guid: 069a1e450fae506469b4874389828ae0
   m_configObjects: {}
