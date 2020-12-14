@@ -49,12 +49,12 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SpeedUpdate() {
-        movement.increaseSpeed();
+        movement.IncreaseSpeed();
     }
 
-    public void SpawnUpdate() {
+    /*public void SpawnUpdate() {
         spawnManager.reduceSpawingRate();
-    }
+    }*/
 
     public void AddPoints() {
         points++;
@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour {
         morals.Add("Non toccarti occhi, naso e bocca con le mani");
         morals.Add("Evita i luoghi affollati");
         morals.Add("Se hai sintomi simili all'influenza, resta a casa e contatta il tuo medico");
-
     }
 
 }

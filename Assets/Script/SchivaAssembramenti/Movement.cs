@@ -2,77 +2,80 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
-    public float initSpeed;
-    public float lineX;
-    public SwipeManager swipeManager;
-    
-    int lane = 1;
+enum Dir { None, Left, Right };
+public class Movement : Swipable {
+    //Parametri pubblici
+    public float initSpeed = 10;
+    public int jumpForceFactor = 300;
 
-    private float speed;
-    private bool moving = false;
+    readonly Lane lane = new Lane(1);
+    Dir moving = Dir.None;
     private bool jumping = false;
+    private float speed;
 
     void Start() {
         speed = initSpeed;
     }
 
-    void Update() {
-        gameObject.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-        SwipeManager.Direction dir = swipeManager.GetDirection();
-
-        if(!moving)
-            switch (dir) {
-                case SwipeManager.Direction.Left:
-                    if(lane != 0) {
-                        gameObject.transform.Rotate(new Vector3(0, -45, 0));
-                        moving = true;
-                        lane--;
-                    }
-                    break;
-                case SwipeManager.Direction.Right:
-                    if(lane != 2) {
-                        gameObject.transform.Rotate(new Vector3(0, 45, 0));
-                        moving = true;
-                        lane++;
-                    }
-                    break;
-                case SwipeManager.Direction.Up:
-                    if(!jumping)
-                        Jump();
-                    break;
-            }
-
-        float posX = gameObject.transform.position.x;
-        float rotY = gameObject.transform.rotation.y;
-        //Se sto andando alla lane n e ci sono arrivato (pos </> qualcosa)
-        if ((lane == 0 && posX < -lineX) ||
-            (lane == 1 && (
-                (posX < 0 && rotY < 0F) ||  //sto arrivando da destra
-                (posX > 0 && rotY > 0F))) || //sto arrivando da sinistra
-            (lane == 2 && posX > lineX)) {
-            //Ferma il movimento
-            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            moving = false;
-        }
+    override protected void Update() {
+        base.Update();
+        Run();
+        StopPlayerOnLane();
     }
 
-    public void Jump() {
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 300, 0));
+    //Corsa del giocatore
+    private void Run() {
+        gameObject.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+    }
+
+    //Controllo giocatore
+    override protected void OnLeftSwipe() {
+        if (moving == Dir.None && lane.ToLeft()) {
+            gameObject.transform.Rotate(new Vector3(0, -45, 0));
+            moving = Dir.Left;
+        }
+    }
+    override protected void OnRightSwipe() {
+        if (moving == Dir.None && lane.ToRight()) {
+            gameObject.transform.Rotate(new Vector3(0, 45, 0));
+            moving = Dir.Right;
+        }
+    }
+    override protected void OnUpSwipe() {
+        if (!jumping)
+            Jump();
+    }
+
+    private void Jump() {
         jumping = true;
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpForceFactor, 0));
         gameObject.GetComponent<Animator>().SetBool("jumping", jumping);
     }
 
+    //Controllo del movimento
+    private void StopPlayerOnLane() {
+        float posX = gameObject.transform.position.x;
+        //Se il giocatore si muove verso dx/sx e raggiunge la lane corretta
+        if (moving == Dir.Right && posX >= lane.GetLane()) {
+            //Resetto la rotazione e l'indicatore della direzione
+            gameObject.transform.rotation = new Quaternion();
+            moving = Dir.None;
+        } else if (moving == Dir.Left && posX <= lane.GetLane()) {
+            gameObject.transform.rotation = new Quaternion();
+            moving = Dir.None;
+        }
+    }
+
+    //Collisione con la strada
     void OnCollisionEnter(Collision collision) {
-        if(collision.collider.name.Contains("Road")) {
+        if (collision.collider.name.Contains("Road")) {
+            //Interrompe il salto
             jumping = false;
             gameObject.GetComponent<Animator>().SetBool("jumping", jumping);
         }
     }
 
-    public void increaseSpeed() {
+    public void IncreaseSpeed() {
         speed += 0.2F;
     }
-
-    
 }
