@@ -29,10 +29,10 @@ public class ObstaclesManager : MonoBehaviour {
         float[] lanes = { -lineX, 0F, lineX };
         int lastLane = -1;
 
-        for (int i = 0; i <= Random.Range(0, 2); i++) {
+        for (int i = 0; i <= Random.Range(0, 3); i++) {
             //Seleziona la lane (diversa dalla precedente)
             int laneIndex;
-            do { laneIndex = Random.Range(0, 2); }
+            do { laneIndex = Random.Range(0, 3); }
             while (laneIndex == lastLane);
             lastLane = laneIndex;
 

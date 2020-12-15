@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     private int moralIndex;
 
     public GameObject gameOver;
+    public GameObject pointsUI;
     public ObstaclesManager spawnManager;
     public Movement movement;
 
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour {
 
     public void AddPoints() {
         points++;
+        pointsUI.transform.GetComponent<Text>().text = points.ToString();
         gameOver.transform.GetChild(2).GetComponent<Text>().text = "Punti guadagnati: " + points;
     }
 
