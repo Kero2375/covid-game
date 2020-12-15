@@ -16,11 +16,21 @@ public class TutorialManager : MonoBehaviour {
     bool swippedL = false;
     bool swippedUp = false;
 
-    AsyncOperation async;
-
     void Update() {
         //Movimento
         player.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+
+        //Faccio vedere il popup con scritto "tutorial"
+        if(player.position.z <= 30F) {
+            popup.transform.GetChild(0).GetComponent<Text>().text = "Tutorial";
+            popup.SetActive(true);
+        }
+
+        //Tolgo il popup
+        if(player.position.z >= 30F) {
+            popup.SetActive(false);
+        }
+
 
         //Primo swipe verso destra
         if (player.position.z >= 40F && player.position.z <= 50F) { //Raggiunta la coordinata Z 40
