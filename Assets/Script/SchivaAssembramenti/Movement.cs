@@ -31,10 +31,12 @@ public class Movement : Swipable {
     override protected void OnLeftSwipe() {
         if (moving == Dir.None && lane.ToLeft()) {
             //gameObject.transform.Rotate(new Vector3(0, -45, 0));
+
             transform.position = new Vector3(
                 lane.GetLane(),
                 transform.position.y,
                 transform.position.z);
+
             //moving = Dir.Left;
             //dir = -1;
         }
