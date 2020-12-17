@@ -12,8 +12,10 @@ public class ObstaclesManager : MonoBehaviour {
 
     private float spawningRate = 3F;
     private Spawner spawner = new Spawner();
+    private float posY;
 
     void Start() {
+        posY = playerTransform.position.y;
         InvokeRepeating("Spawn", 0, spawningRate);
     }
 
@@ -41,7 +43,7 @@ public class ObstaclesManager : MonoBehaviour {
                 .Spawn(obstaclePrefabs, "Ostacolo")
                 .SetPosition(
                     lanes[laneIndex],
-                    playerTransform.position.y,
+                    posY,
                     playerTransform.position.z + distanceFromPlayer + Random.Range(-10, 10))
                 .Rotate(0, Random.Range(0, 360), 0)
                 .GetObject();
