@@ -29,7 +29,7 @@ public class Movement : Swipable {
 
     //Controllo giocatore
     override protected void OnLeftSwipe() {
-        if (moving == Dir.None && lane.ToLeft()) {
+        if (!jumping && moving == Dir.None && lane.ToLeft()) {
             //gameObject.transform.Rotate(new Vector3(0, -45, 0));
 
             transform.position = new Vector3(
@@ -42,7 +42,7 @@ public class Movement : Swipable {
         }
     }
     override protected void OnRightSwipe() {
-        if (moving == Dir.None && lane.ToRight()) {
+        if (!jumping && moving == Dir.None && lane.ToRight()) {
             //gameObject.transform.Rotate(new Vector3(0, 45, 0));
             transform.position = new Vector3(
                 lane.GetLane(),
