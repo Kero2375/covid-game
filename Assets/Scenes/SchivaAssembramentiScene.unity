@@ -494,6 +494,10 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
+    - target: {fileID: 13700000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 06e5d878f6254cb4da625716f78a57f4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
 --- !u!1 &548811623
@@ -507,7 +511,7 @@ GameObject:
   - component: {fileID: 548811625}
   - component: {fileID: 548811624}
   m_Layer: 0
-  m_Name: SpawnManager
+  m_Name: ObstaclesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,6 +533,7 @@ MonoBehaviour:
   - {fileID: 699872188918306010, guid: f8ad648aec8f5a7429e42e33e7deac8d, type: 3}
   - {fileID: 7934403313697991477, guid: 7758ce52523feae428dbb2ec4e1272a2, type: 3}
   - {fileID: 4708138588735693007, guid: 16e914e0959d02b449086bccdd4dfb09, type: 3}
+  - {fileID: 7406510534022337300, guid: 198a4c17c4417134e88bd4d35a3b10c3, type: 3}
   playerTransform: {fileID: 1182320691}
   distanceFromPlayer: 60
   lineX: 3.2
@@ -1253,7 +1258,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.07048772, g: 0.4528302, b: 0.22802073, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1687,6 +1692,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701029858}
   m_CullTransparentMesh: 0
+--- !u!1 &1849460209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849460211}
+  - component: {fileID: 1849460210}
+  m_Layer: 0
+  m_Name: CoinsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1849460210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849460209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d7ed63a9a89e40af6d90aafc6a50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefabs:
+  - {fileID: 1108365220737316355, guid: 11806e4daa05191439105efc1bdb5bda, type: 3}
+  playerTransform: {fileID: 1182320691}
+  gameManager: {fileID: 1306974015}
+--- !u!4 &1849460211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849460209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3509054, y: 3.1838067, z: -2.0594044}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044523852
 GameObject:
   m_ObjectHideFlags: 0
