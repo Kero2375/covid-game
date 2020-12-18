@@ -28,6 +28,4 @@ public class Home : MonoBehaviour{
             SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
         }
     }
-
-    
 }
