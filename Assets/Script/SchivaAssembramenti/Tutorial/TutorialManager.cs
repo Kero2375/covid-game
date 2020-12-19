@@ -9,12 +9,16 @@ public class TutorialManager : MonoBehaviour {
     public Transform player;
     public GameObject hand;
     public GameObject popup;
+    public GameObject point;
+
     private float speed = 10;
     public float lineX = 3.2F;
 
     bool swippedR = false;
     bool swippedL = false;
     bool swippedUp = false;
+    bool coinTaken = false;
+
 
     void Update() {
         //Movimento
@@ -33,12 +37,12 @@ public class TutorialManager : MonoBehaviour {
 
 
         //Primo swipe verso destra
-        if (player.position.z >= 40F && player.position.z <= 50F) { //Raggiunta la coordinata Z 40
+        if (player.position.z >= 45F && player.position.z <= 50F) { //Raggiunta la coordinata Z 40
             if (!swippedR) { //se non è stato effettuato lo swipe
                 Time.timeScale = 0; //stop al tempo
                 hand.SetActive(true); //attiva la grafica della mano
                 popup.SetActive(true);
-                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso sinistra per schivare l'assembramento";
+                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso destra per schivare l'assembramento";
 
                 //Animazione mano
                 hand.transform.Rotate(new Vector3(0, 0, -30 * Time.unscaledDeltaTime)); //inizia la rotazione della mano
@@ -55,24 +59,22 @@ public class TutorialManager : MonoBehaviour {
                 hand.SetActive(false);
                 popup.SetActive(false);
                 hand.transform.rotation = new Quaternion();
-                //ruota il giocatore
-                player.Rotate(new Vector3(0, 45, 0));
-            }
+                        
+                player.position = new Vector3(
+                lineX,
+                player.position.y,
+                player.position.z);
 
-            //quando arriva alla coordinata della lane, raddrizza il player
-            float posX = player.position.x;
-            if (posX > lineX) {
-                player.rotation = new Quaternion();
-            }
+            }      
         }
 
         //Primo swipe verso sinistra (analogo)
-        if (player.position.z >= 80F && player.position.z <= 90F) {
+        if (player.position.z >= 85F && player.position.z <= 90F) {
             if (!swippedL) {
                 Time.timeScale = 0;
                 hand.SetActive(true);
                 popup.SetActive(true);
-                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso destra per schivare l'assembramento";
+                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso sinistra per schivare l'assembramento";
                 hand.transform.Rotate(new Vector3(0, 0, 30 * Time.unscaledDeltaTime));
                 if (hand.transform.rotation.z >= .3F) {
                     hand.transform.rotation = new Quaternion();
@@ -80,16 +82,16 @@ public class TutorialManager : MonoBehaviour {
             }
             if (swipeManager.GetDirection() == SwipeManager.Direction.Left) {
                 Time.timeScale = 1;
-                player.Rotate(new Vector3(0, -45, 0));
                 swippedL = true;
                 hand.SetActive(false);
                 popup.SetActive(false);
                 hand.transform.rotation = new Quaternion();
-            }
-            float posX = player.position.x;
-            float rotY = player.rotation.y;
-            if (posX < 0 && rotY < 0F) {
-                player.rotation = new Quaternion();
+                
+                player.position = new Vector3(
+                0F,
+                player.position.y,
+                player.position.z);
+
             }
         }
 
@@ -116,14 +118,29 @@ public class TutorialManager : MonoBehaviour {
             }
         }
 
-        if(player.transform.position.z >= 130 && player.transform.position.z <= 170) {
+        if(player.transform.position.z >= 130 && player.transform.position.z <= 150) {
             popup.SetActive(true);
             popup.transform.GetChild(0).GetComponent<Text>().text = "Ogni volta che ti scontri con un ostacolo, perdi una vita, non arrivare mai a zero";
         }
 
+        if (player.transform.position.z >= 150 && player.transform.position.z <= 170) {
+            popup.SetActive(false);
+        }
+
+        if (player.transform.position.z >= 180) {
+            point.GetComponent<Text>().text = "1";
+        }
+
+        if (player.transform.position.z >= 170 && player.transform.position.z <= 200) {
+            popup.transform.GetChild(0).GetComponent<Text>().text = "Prendi più monete possibili, ti permettono di ottenere più punti";
+            popup.SetActive(true);
+            coinTaken = true;          
+        }
+
         //Carico la scena del gioco vero e proprio
-        if (swippedL && swippedR && swippedUp && player.transform.position.z >= 170) {
+        if (swippedL && swippedR && swippedUp && coinTaken && player.transform.position.z >= 210) {
             popup.transform.GetChild(0).GetComponent<Text>().text = "Ottimo lavoro, hai completato il tutorial!";
+            popup.SetActive(true);
             StartCoroutine(waitLoadScene());
         }
     }
