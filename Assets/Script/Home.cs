@@ -28,4 +28,8 @@ public class Home : MonoBehaviour{
             SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
         }
     }
+
+    public void LoadMascherina() {
+        SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
+    }
 }

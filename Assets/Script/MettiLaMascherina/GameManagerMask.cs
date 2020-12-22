@@ -35,6 +35,31 @@ public class GameManagerMask : MonoBehaviour {
             gameOver.SetActive(true);
             gameOver.transform.GetChild(1).GetComponent<Text>().text = morals[moralIndex];
         }
+
+        if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) {
+            //Input Mouse ritorna un Vector3, prendo quindi x e y
+            Vector2 pos = Input.touchCount > 0 ? Input.GetTouch(0).position : new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+            Ray raycast = Camera.main.ScreenPointToRay(pos);
+            RaycastHit hit;
+
+            if(Physics.Raycast(raycast,out hit)) {
+                if (hit.collider.CompareTag("Person")) {
+                    //Controllo se il personaggio ha la maschera o no
+                    if (!hit.collider.GetComponent<PeopleMovement>().hasMask()) {
+                        //Prendo il nome della skin del personaggio
+                        string s = hit.collider.GetComponentInChildren<SkinnedMeshRenderer>().material.name.Split(' ')[0] + "_mask";
+                        //Aggiungo _mask per andare a prendere la skin dello stesso personaggio però con la mascherina
+                        Material newMat = Resources.Load<Material>(s);
+                        //Imposto la nuova skin
+                        hit.collider.GetComponentInChildren<SkinnedMeshRenderer>().material = newMat;
+                        //Metto la maschera al personaggio
+                        hit.collider.GetComponent<PeopleMovement>().putMask();
+                    } else {
+                        Hit();
+                    }
+                }
+            }
+        }
     }
 
     public void resetScene() {

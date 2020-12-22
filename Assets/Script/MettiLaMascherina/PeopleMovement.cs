@@ -16,14 +16,28 @@ public class PeopleMovement : MonoBehaviour{
         Run();
         if(transform.position.z < 6F){
             if (!haveMask)
+                //Tolgo una vita
                 manager.Hit();
+            //Elimina l'oggetto a cui lo script è attaccato
             Destroy(transform.root.gameObject);
+            manager.AddPoints();
 
         }
+
+
     }
 
     private void Run() {
         transform.position -= new Vector3(0, 0, speed) * Time.deltaTime;
+    }
+
+    public bool hasMask() {
+        return haveMask;
+    }
+
+    public void putMask() {
+        if(!haveMask)
+            haveMask = true;
     }
 
 }
