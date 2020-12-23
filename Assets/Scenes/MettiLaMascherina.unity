@@ -255,6 +255,7 @@ MonoBehaviour:
   peoplePrefabs:
   - {fileID: 7934403313697991477, guid: 480699291e11feb418f001f2fec8a4a0, type: 3}
   - {fileID: 7934403313697991477, guid: 09cafa891d3ef2d45a45682436511ce7, type: 3}
+  - {fileID: 7934403313697991477, guid: 16090371fa25a674a9522bc1b11d3cdf, type: 3}
   spawnManager: {fileID: 461606975}
 --- !u!4 &324781674
 Transform:

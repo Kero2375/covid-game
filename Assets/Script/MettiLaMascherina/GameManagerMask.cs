@@ -91,4 +91,7 @@ public class GameManagerMask : MonoBehaviour {
         morals.Add("Se hai sintomi simili all'influenza, resta a casa e contatta il tuo medico");
     }
 
+
+
+
 }
