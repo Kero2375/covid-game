@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameManagerMask
   - Person
+  - Linea
   layers:
   - Default
   - TransparentFX

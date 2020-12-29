@@ -14,17 +14,6 @@ public class PeopleMovement : MonoBehaviour{
 
     void Update(){
         Run();
-        if(transform.position.z < 6F){
-            if (!haveMask)
-                //Tolgo una vita
-                manager.Hit();
-            //Elimina l'oggetto a cui lo script è attaccato
-            Destroy(transform.root.gameObject);
-            manager.AddPoints();
-
-        }
-
-
     }
 
     private void Run() {
@@ -41,11 +30,21 @@ public class PeopleMovement : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Linea")) {  
+            if (!haveMask)
+                //Tolgo una vita
+                manager.Hit();
+            //Elimina l'oggetto a cui lo script è attaccato
+            Destroy(transform.root.gameObject);
+            manager.AddPoints();
+        }
         
         if (other.CompareTag("Person")){
             Debug.Log("Collisione tra personaggi");
             Destroy(transform.root.gameObject);
         }
+
+        
     }
 
 

@@ -1034,6 +1034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
+  pointsUI: {fileID: 0}
   spawnManager: {fileID: 0}
   movement: {fileID: 1182320692}
 --- !u!4 &1306974016
@@ -1710,6 +1711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
+  pointsUI: {fileID: 0}
   spawnManager: {fileID: 0}
   movement: {fileID: 0}
 --- !u!1001 &2144310051

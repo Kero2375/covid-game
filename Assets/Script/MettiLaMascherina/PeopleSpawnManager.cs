@@ -15,6 +15,7 @@ public class PeopleSpawnManager : MonoBehaviour{
     private float distanceFromPlayer = 70F;
 
     private int lastNumber = 0;
+
     //Altezza del suolo y = 0.6
     //Posizione player = 0 0 0 
     //cordinata x centro lane -6 -3 0 3 +6
