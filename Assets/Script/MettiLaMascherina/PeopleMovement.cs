@@ -5,7 +5,7 @@ using UnityEngine;
 public class PeopleMovement : MonoBehaviour{
    
     public float speed;
-    private bool haveMask = false;
+    public bool haveMask = false;
     private GameManagerMask manager;
 
     private void Start() {
