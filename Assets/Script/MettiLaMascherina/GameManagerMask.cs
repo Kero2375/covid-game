@@ -81,6 +81,10 @@ public class GameManagerMask : MonoBehaviour {
         gameOver.transform.GetChild(2).GetComponent<Text>().text = "Punti guadagnati: " + points;
     }
 
+    public void loadGameScene() {
+        SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
+    }
+
     private void PopulateMorals() {
         morals.Add("Ricorda di evitare i contatti ravvicinati mantenendo la distanza di almeno un metro");
         morals.Add("Indossa sempre la mascherina, serve per limitare la diffusione");

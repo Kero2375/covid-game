@@ -10,6 +10,11 @@ public class PeopleMovement : MonoBehaviour{
 
     private void Start() {
         manager = GameObject.FindWithTag("GameManagerMask").GetComponent<GameManagerMask>();
+        string s = transform.root.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.name;
+        if (s.Contains("mask")) {
+            haveMask = true;
+        }
+
     }
 
     void Update(){

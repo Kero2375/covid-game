@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("SchermataIniziale");
     }
 
+    public void loadGameScene() {
+        SceneManager.LoadScene("SchivaAssembramentiScene");
+    }
     public void Hit() {
         life--;
         hearts[life].SetActive(false);
