@@ -86,7 +86,6 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
         if(!firstPerson && !secondPerson) {
             textPopup.text = "Complimenti! Hai completato il tutorial";
             popup.SetActive(true);
-            StartCoroutine(SetPopupTextAndWait());
             StartCoroutine(waitLoadScene());
         }
     }
