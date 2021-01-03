@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 
     public GameObject gameOver;
     public GameObject pointsUI;
-    public ObstaclesManager spawnManager;
+    //public ObstaclesManager spawnManager;
     public Movement movement;
 
     private void Start() {

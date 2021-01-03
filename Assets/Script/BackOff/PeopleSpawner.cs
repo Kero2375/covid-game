@@ -5,12 +5,25 @@ using UnityEngine;
 public class PeopleSpawner : MonoBehaviour {
 
     public GameObject[] peoplePrefab;
-    public Transform player;
+    public MeshRenderer floor;
 
     private Spawner spawner = new Spawner();
+    private float spawningRate = 2F;
+    private float timer = 0;
+    private float spawningTimer = 0;
 
-    void Start() {
-        InvokeRepeating("Spawn", 0, 2);
+    private void Update() {
+        timer += Time.deltaTime;
+        spawningTimer += Time.deltaTime;
+        if(timer > spawningRate) { 
+            Spawn();
+            timer = 0;
+        }
+        //ogni 10 sec diminuisce spawningRate di 0.1, fino a 0.7
+        if(spawningTimer > 10 && spawningRate > .7F) {
+            spawningTimer = 0;
+            spawningRate -= .1F;
+        }
     }
 
     void Spawn() {
@@ -23,11 +36,13 @@ public class PeopleSpawner : MonoBehaviour {
         Vector3 pos = ray.GetPoint(distance);
 
         spawner
-            .Spawn(peoplePrefab)
+            .Spawn(peoplePrefab, "Person")
             .SetPosition(
                 pos.x,
                 null,
                 pos.z)
-            .GetObject();
+            .GetObject()
+            .GetComponent<PeopleMovements>()
+            .floor = this.floor;
     }
 }

@@ -5,12 +5,11 @@ using UnityEngine;
 public class PeopleGrabber : MonoBehaviour {
 
     private Plane plane;
+    private float posY;
 
     void Start() {
         plane = new Plane(Vector3.up, Vector3.zero);
-    }
-
-    void Update() {
+        posY = transform.position.y;
     }
 
     private void OnMouseDrag() {
@@ -24,7 +23,7 @@ public class PeopleGrabber : MonoBehaviour {
 
         transform.position = new Vector3(
             pos.x,
-            transform.position.y,
+            posY,
             pos.z);
     }
 }
