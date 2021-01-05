@@ -22,14 +22,6 @@ public class CollisionCounter : MonoBehaviour {
             StopAllCoroutines();
             damaging = false;
         }
-        /*if(count >= 6) {
-            warningTxt.SetActive(true);
-            countdown -= Time.deltaTime;
-            warningTxt.GetComponent<Text>().text = "ATTENZIONE!\n" + (int)countdown;
-        } else {
-            warningTxt.SetActive(false);
-            countdown = 11F;
-        }*/
     }
 
     private void OnTriggerEnter(Collider other) {

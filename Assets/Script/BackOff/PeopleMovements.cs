@@ -5,6 +5,7 @@ using UnityEngine;
 public class PeopleMovements : MonoBehaviour {
     public float direction = 1F;
     public MeshRenderer floor;
+
     Vector3 target;
 
     private void Start() {
@@ -13,12 +14,11 @@ public class PeopleMovements : MonoBehaviour {
             0,
             floor.bounds.size.z * Random.value);
         target = floor.transform.position + random;
-        
     }
 
     void Update() {
         if( Mathf.Abs(transform.position.x - target.x) > .2F &&
-            Mathf.Abs(transform.position.z - target.z) > .2F) {
+            Mathf.Abs(transform.position.z - target.z) > .2F) { //se arrivato vicino al punto target
             GetComponent<Animator>().SetBool("idle", false);
             transform.LookAt(target);
             transform.position = Vector3.MoveTowards(
@@ -33,6 +33,10 @@ public class PeopleMovements : MonoBehaviour {
     private void OnTriggerExit(Collider other) {
         if(other.name.Contains("Floor")) {
             Destroy(gameObject);
+            GameObject
+                .Find("GameManager")
+                .GetComponent<GameManager>()
+                .AddPoints();
         }
     }
 }
