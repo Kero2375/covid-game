@@ -2050,7 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  haveMask: 0
+  haveMask: 1
 --- !u!95 &4630093757544111374
 Animator:
   serializedVersion: 3

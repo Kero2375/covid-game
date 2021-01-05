@@ -23,6 +23,7 @@ public class PeopleSpawnManager : MonoBehaviour{
     void Start(){
        InvokeRepeating("Spawn", 0, rate);
     }
+
     private void Spawn() {
         //Number of people to spawn
         float numberPeople = Random.Range(0, 6);
@@ -44,6 +45,7 @@ public class PeopleSpawnManager : MonoBehaviour{
         }          
     }
 
+    //Ritorna un numero randomico compreso tra min e max e diverso da lastNumber
     private int GetRandom(int min,int max) {
         int rand = Random.Range(min, max);
         while(rand == lastNumber) {

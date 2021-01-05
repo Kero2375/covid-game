@@ -10,11 +10,6 @@ public class PeopleMovement : MonoBehaviour{
 
     private void Start() {
         manager = GameObject.FindWithTag("GameManagerMask").GetComponent<GameManagerMask>();
-        string s = transform.root.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.name;
-        if (s.Contains("mask")) {
-            haveMask = true;
-        }
-
     }
 
     void Update(){
@@ -44,8 +39,8 @@ public class PeopleMovement : MonoBehaviour{
             manager.AddPoints();
         }
         
+        //Se due persone vengono tra di loro collidono, distruggo una delle due
         if (other.CompareTag("Person")){
-            Debug.Log("Collisione tra personaggi");
             Destroy(transform.root.gameObject);
         }
 

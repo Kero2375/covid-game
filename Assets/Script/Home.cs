@@ -7,29 +7,28 @@ using UnityEngine.SceneManagement;
 public class Home : MonoBehaviour{
 
     public GameObject schivaAssembramenti;
+
     //Da salvare in un file
     private int punteggio;
-    private bool tutorialOn = true;
-
-
-    void Start(){
-  
-    }
-
-    private void Update() {
-
-    }
+    private bool tutorialSchivaAssembramenti = true;
+    private bool tutorialMettiMascherina = true;
 
     public void LoadAssembramenti() {
-        if (tutorialOn) {
+        if (tutorialSchivaAssembramenti) {
             SceneManager.LoadScene("SchivaAssembramentiTutorial", LoadSceneMode.Single);
-            tutorialOn = false;
+            tutorialSchivaAssembramenti = false;
         } else {
             SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
         }
     }
 
     public void LoadMascherina() {
-        SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
+        if (tutorialMettiMascherina) {
+            SceneManager.LoadScene("MettiLaMascherinaTutorial", LoadSceneMode.Single);
+            tutorialMettiMascherina = false;
+        } else {
+            SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
+        }
+        
     }
 }

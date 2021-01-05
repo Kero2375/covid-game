@@ -9,8 +9,8 @@ public class GameManagerMask : MonoBehaviour {
     private int life;
     private int points;
     private GameObject[] hearts = new GameObject[3];
-
     private List<string> morals = new List<string>();
+
     private int moralIndex;
 
     public GameObject gameOver;
