@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SchivaAssembramentiScene.unity
     guid: 069a1e450fae506469b4874389828ae0
   - enabled: 1
-    path: Assets/Scenes/BackOff.unity
-    guid: 4762142298d62c34c9ffa87248e1d518
+    path: Assets/Scenes/MettiLaMascherina.unity
+    guid: 0c220c0d5721b5843953343cfa321d6b
   m_configObjects: {}

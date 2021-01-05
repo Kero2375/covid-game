@@ -31,4 +31,8 @@ public class Home : MonoBehaviour{
     public void LoadBackOff() {
         SceneManager.LoadScene("BackOff", LoadSceneMode.Single);
     }
+    
+    public void LoadMascherina() {
+        SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
+    }
 }
