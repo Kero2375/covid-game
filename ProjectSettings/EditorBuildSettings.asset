@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SchivaAssembramentiScene.unity
     guid: 069a1e450fae506469b4874389828ae0
+  - enabled: 1
+    path: Assets/Scenes/MettiLaMascherina.unity
+    guid: 0c220c0d5721b5843953343cfa321d6b
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/MettiLaMascherinaTutorial.unity
+    guid: b3f36e18aec486748a17d5fef43d713f
   m_configObjects: {}
