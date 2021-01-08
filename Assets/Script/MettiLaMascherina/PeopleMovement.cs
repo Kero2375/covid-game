@@ -33,7 +33,7 @@ public class PeopleMovement : MonoBehaviour{
         if (other.CompareTag("Linea")) {  
             if (!haveMask)
                 //Tolgo una vita
-                manager.Hit();
+                manager.DecreaseLifes();
             //Elimina l'oggetto a cui lo script è attaccato
             Destroy(transform.root.gameObject);
             manager.AddPoints();

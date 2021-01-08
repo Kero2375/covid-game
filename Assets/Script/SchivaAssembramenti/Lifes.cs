@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Lifes : MonoBehaviour {
-    public GameManager gameManager;
+    public GameManagerSchiva gameManager;
     public Animator skinAnimator;
 
     private void OnTriggerEnter(Collider other) {
         if (other.name == "Ostacolo") {
-            gameManager.Hit();
+            gameManager.DecreaseLifes();
             skinAnimator.SetTrigger("Hitted");
         }
     }

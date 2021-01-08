@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour {
     private Transform playerTransform;
-    private GameManager gameManager;
+    private GameManagerSchiva gameManager;
 
     // Update is called once per frame
     void Update() {
@@ -26,7 +26,7 @@ public class Coin : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public void SetAttributes(Transform playerTransform, GameManager gameManager) {
+    public void SetAttributes(Transform playerTransform, GameManagerSchiva gameManager) {
         this.playerTransform = playerTransform;
         this.gameManager = gameManager;
     }

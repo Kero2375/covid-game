@@ -5,17 +5,13 @@ using UnityEngine;
 enum Dir { None, Left, Right };
 public class Movement : Swipable {
     //Parametri pubblici
-    public float initSpeed = 10;
+    public float speed = 10;
     public int jumpForceFactor = 300;
+    public GameManager gameManager;
 
     readonly Lane lane = new Lane(1);
     Dir moving = Dir.None;
     private bool jumping = false;
-    private float speed;
-
-    void Start() {
-        speed = initSpeed;
-    }
 
     override protected void Update() {
         base.Update();
@@ -24,32 +20,24 @@ public class Movement : Swipable {
 
     //Corsa del giocatore
     private void Run() {
-        transform.position += new Vector3(0, 0, speed) * Time.deltaTime;
+        transform.position += new Vector3(0, 0, 10 * gameManager.GetSpeedFactor()) * Time.deltaTime;
     }
 
     //Controllo giocatore
     override protected void OnLeftSwipe() {
         if (!jumping && moving == Dir.None && lane.ToLeft()) {
-            //gameObject.transform.Rotate(new Vector3(0, -45, 0));
-
             transform.position = new Vector3(
                 lane.GetLane(),
                 transform.position.y,
                 transform.position.z);
-
-            //moving = Dir.Left;
-            //dir = -1;
         }
     }
     override protected void OnRightSwipe() {
         if (!jumping && moving == Dir.None && lane.ToRight()) {
-            //gameObject.transform.Rotate(new Vector3(0, 45, 0));
             transform.position = new Vector3(
                 lane.GetLane(),
                 transform.position.y,
                 transform.position.z);
-            //moving = Dir.Right;
-            //dir = 1;
         }
     }
     override protected void OnUpSwipe() {
@@ -63,27 +51,6 @@ public class Movement : Swipable {
         gameObject.GetComponent<Animator>().SetBool("jumping", jumping);
     }
 
-    //Controllo del movimento
-    /*IEnumerator StopPlayerOnLane() {
-        yield return new WaitForSecondsRealtime(.3F);
-        gameObject.transform.rotation = new Quaternion();
-        moving = Dir.None;
-        dir = 0;
-
-        float posX = gameObject.transform.position.x;
-        //Se il giocatore si muove verso dx/sx e raggiunge la lane corretta
-        if (moving == Dir.Right && posX >= lane.GetLane()) {
-            //Resetto la rotazione e l'indicatore della direzione
-            gameObject.transform.rotation = new Quaternion();
-            moving = Dir.None;
-            dir = 0;
-        } else if (moving == Dir.Left && posX <= lane.GetLane()) {
-            gameObject.transform.rotation = new Quaternion();
-            moving = Dir.None;
-            dir = 0;
-        }
-    }*/
-
     //Collisione con la strada
     void OnCollisionEnter(Collision collision) {
         if (collision.collider.name.Contains("Road")) {
@@ -91,9 +58,5 @@ public class Movement : Swipable {
             jumping = false;
             gameObject.GetComponent<Animator>().SetBool("jumping", jumping);
         }
-    }
-
-    public void IncreaseSpeed() {
-        speed += 0.5F;
     }
 }

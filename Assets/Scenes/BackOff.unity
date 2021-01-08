@@ -286,7 +286,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 342333962}
-  - component: {fileID: 342333963}
   m_Layer: 5
   m_Name: Lifes
   m_TagString: Untagged
@@ -316,21 +315,6 @@ RectTransform:
   m_AnchoredPosition: {x: -130, y: -40}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &342333963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342333961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0761cbed52673c045b280dc155d0be27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
-  pointsUI: {fileID: 0}
-  movement: {fileID: 0}
 --- !u!1 &376223101
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +848,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1563658408}
-        m_MethodName: resetScene
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1387,7 +1371,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1563658408}
-        m_MethodName: backToMenu
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1627,12 +1611,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1563658407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0761cbed52673c045b280dc155d0be27, type: 3}
+  m_Script: {fileID: 11500000, guid: 89474265b2024aa4fbcd4d843cebd342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 812237101}
   pointsUI: {fileID: 591718297}
-  movement: {fileID: 0}
 --- !u!4 &1563658409
 Transform:
   m_ObjectHideFlags: 0

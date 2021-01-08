@@ -455,8 +455,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1306974015}
-        m_MethodName: backToMenu
+      - m_Target: {fileID: 1306974017}
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2724,8 +2724,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1306974015}
-        m_MethodName: resetScene
+      - m_Target: {fileID: 1306974017}
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2805,7 +2805,7 @@ MonoBehaviour:
   - {fileID: 4350719481656080017, guid: 7ac366d79c3b3d743a75c95b93372ec8, type: 3}
   player: {fileID: 284794106}
   tileLenght: 60
-  gameManager: {fileID: 1306974015}
+  gameManager: {fileID: 1306974017}
 --- !u!4 &902074690
 Transform:
   m_ObjectHideFlags: 0
@@ -2954,8 +2954,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeManager: {fileID: 1100962774}
-  initSpeed: 10
+  speed: 0
   jumpForceFactor: 300
+  gameManager: {fileID: 1306974017}
 --- !u!54 &1182320693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2998,7 +2999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9773323b09441447be1f49a23726323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1306974015}
+  gameManager: {fileID: 1306974017}
   skinAnimator: {fileID: 285081817}
 --- !u!1 &1247855981
 GameObject:
@@ -3111,7 +3112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306974016}
-  - component: {fileID: 1306974015}
+  - component: {fileID: 1306974017}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3119,22 +3120,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1306974015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306974014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0761cbed52673c045b280dc155d0be27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOver: {fileID: 2067417776}
-  pointsUI: {fileID: 968803645}
-  spawnManager: {fileID: 548811624}
-  movement: {fileID: 1182320692}
 --- !u!4 &1306974016
 Transform:
   m_ObjectHideFlags: 0
@@ -3149,6 +3134,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306974017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306974014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a54eccb2bc57a947b8bacf7e427de45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: {fileID: 2067417776}
+  pointsUI: {fileID: 968803645}
 --- !u!1 &1329079450
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,7 +3651,7 @@ MonoBehaviour:
   coinPrefabs:
   - {fileID: 1108365220737316355, guid: 11806e4daa05191439105efc1bdb5bda, type: 3}
   playerTransform: {fileID: 284794106}
-  gameManager: {fileID: 1306974015}
+  gameManager: {fileID: 1306974017}
 --- !u!4 &1849460211
 Transform:
   m_ObjectHideFlags: 0
@@ -3871,7 +3870,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0761cbed52673c045b280dc155d0be27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
-  pointsUI: {fileID: 0}
-  spawnManager: {fileID: 0}
-  movement: {fileID: 0}

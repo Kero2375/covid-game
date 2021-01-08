@@ -6,7 +6,7 @@ public class TilesManager : MonoBehaviour {
     public GameObject[] tilePrefabs;
     public Transform player;
     public float tileLenght = 60;
-    public GameManager gameManager;
+    public GameManagerSchiva gameManager;
 
     private List<GameObject> tiles = new List<GameObject>();
     private Spawner spawner = new Spawner();
@@ -29,7 +29,7 @@ public class TilesManager : MonoBehaviour {
             tiles.RemoveAt(0);
             //Incrementa il punteggio
             gameManager.AddPoints();
-            gameManager.SpeedUpdate();
+            gameManager.IncreaseSpeed(.1F);
         }
     }
 

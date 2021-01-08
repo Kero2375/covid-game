@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinsManager : MonoBehaviour {
     public GameObject[] coinPrefabs;
     public Transform playerTransform;
-    public GameManager gameManager;
+    public GameManagerSchiva gameManager;
 
     private Spawner spawner = new Spawner();
 
