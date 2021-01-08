@@ -10,13 +10,19 @@ public class Spawner {
             this.obj = obj;
         }
 
-        public Object SetPosition(float x, float y, float z) {
-            obj.transform.position = new Vector3(x, y, z);
+        public Object SetPosition(float? x, float? y, float? z) {
+            obj.transform.position = new Vector3(
+                x.GetValueOrDefault(obj.transform.position.x), 
+                y.GetValueOrDefault(obj.transform.position.y),
+                z.GetValueOrDefault(obj.transform.position.z));
             return this;
         }
 
-        public Object Rotate(float x, float y, float z) {
-            obj.transform.Rotate(x, y, z);
+        public Object Rotate(float? x, float? y, float? z) {
+            obj.transform.Rotate(
+                x.GetValueOrDefault(obj.transform.position.x),
+                y.GetValueOrDefault(obj.transform.position.y),
+                z.GetValueOrDefault(obj.transform.position.z));
             return this;
         }
         public GameObject GetObject() {

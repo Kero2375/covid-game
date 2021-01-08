@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial/MettiLaMascherinaTutorial.unity
     guid: b3f36e18aec486748a17d5fef43d713f
+  - enabled: 1
+    path: Assets/Scenes/BackOff.unity
+    guid: 4762142298d62c34c9ffa87248e1d518
   m_configObjects: {}

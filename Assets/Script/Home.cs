@@ -21,7 +21,10 @@ public class Home : MonoBehaviour{
             SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
         }
     }
-
+    public void LoadBackOff() {
+        SceneManager.LoadScene("BackOff", LoadSceneMode.Single);
+    }
+    
     public void LoadMascherina() {
         if (tutorialMettiMascherina) {
             SceneManager.LoadScene("MettiLaMascherinaTutorial", LoadSceneMode.Single);
