@@ -9,7 +9,6 @@ public class Lifes : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.name == "Ostacolo") {
             gameManager.DecreaseLifes();
-            skinAnimator.SetTrigger("Hitted");
         }
     }
 }

@@ -58,6 +58,7 @@ public abstract class GameManager : MonoBehaviour {
     public void DecreaseLifes() {
         lifes--;
         hearts[lifes].SetActive(false);
+        GameObject.Find("Damage").GetComponent<Animator>().SetTrigger("damage");
     }
     public void AddPoints(int point = 1) {
         points += point; 
