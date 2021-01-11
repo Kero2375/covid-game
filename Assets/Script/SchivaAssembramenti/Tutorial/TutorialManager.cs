@@ -151,5 +151,8 @@ public class TutorialManager : MonoBehaviour {
         SceneManager.LoadScene("SchivaAssembramentiScene", LoadSceneMode.Single);
     }
 
+    public void skipTutorial() {
+        SceneManager.LoadScene("SchivaAssembramentiScene", LoadSceneMode.Single);
+    }
  
 }

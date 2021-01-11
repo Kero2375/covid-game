@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TutorialMovement : MonoBehaviour {
-    public GameObject hand;
 
+    public GameObject hand;
     private Vector3 target = new Vector3(0, -.32F, 6);
 
     void Update() {
@@ -15,14 +16,16 @@ public class TutorialMovement : MonoBehaviour {
             Time.deltaTime);
     }
 
-    private void OnMouseDrag() {
+    private void OnMouseDrag() {           
         hand.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1;      
     }
 
-    private void OnTriggerExit(Collider other) {
+    private void OnTriggerExit(Collider other) {   
         if (other.name.Contains("Floor")) {
             Destroy(gameObject);
+
         }
     }
+  
 }
