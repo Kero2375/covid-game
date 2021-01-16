@@ -36,12 +36,15 @@ public abstract class GameManager : MonoBehaviour {
         StartTime();
     }
 
+    int i = 0;
     public virtual void Update() {
-        if(lifes == 0) {
+        if(lifes == 0 && !gameOver.activeSelf) {
             StopTime();
             gameOver.SetActive(true);
             gameOver.transform.GetChild(1).GetComponent<Text>().text = MORALS[moralIndex];
             gameOver.transform.GetChild(2).GetComponent<Text>().text = "Punti guadagnati: " + points;
+            SaveData.AddPoints(points);
+            Debug.Log(++i);
         }
     }
 

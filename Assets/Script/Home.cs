@@ -1,36 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Home : MonoBehaviour{
 
-    public GameObject schivaAssembramenti;
+    public Text points; 
 
-    //Da salvare in un file
-    private int punteggio;
-    private bool tutorialSchivaAssembramenti = true;
-    private bool tutorialMettiMascherina = true;
+    private void Start() {
+        SaveData.Load();
+        points.text = SaveData.GetPoints().ToString();
+    }
 
     public void LoadAssembramenti() {
-        if (tutorialSchivaAssembramenti) {
-            SceneManager.LoadScene("SchivaAssembramentiTutorial", LoadSceneMode.Single);
-            tutorialSchivaAssembramenti = false;
-        } else {
+        if (SaveData.IsTutorialDone(SaveData.GAMES.EvitaAssembramenti)) {
             SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
+        } else {
+            SceneManager.LoadScene("SchivaAssembramentiTutorial", LoadSceneMode.Single);
         }
     }
     public void LoadBackOff() {
-        SceneManager.LoadScene("BackOff", LoadSceneMode.Single);
+        if (SaveData.IsTutorialDone(SaveData.GAMES.FuoriDiQua)) {
+            SceneManager.LoadScene("BackOff", LoadSceneMode.Single);
+        } else {
+            SceneManager.LoadScene("BackOffTutorial", LoadSceneMode.Single);
+        }
     }
     
     public void LoadMascherina() {
-        if (tutorialMettiMascherina) {
-            SceneManager.LoadScene("MettiLaMascherinaTutorial", LoadSceneMode.Single);
-            tutorialMettiMascherina = false;
-        } else {
+        if (SaveData.IsTutorialDone(SaveData.GAMES.MettiLaMascherina)) {
             SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
+        } else {
+            SceneManager.LoadScene("MettiLaMascherinaTutorial", LoadSceneMode.Single);
         }
         
     }
