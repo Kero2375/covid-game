@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour {
     private Transform playerTransform;
     private GameManagerSchiva gameManager;
+    
 
     // Update is called once per frame
     void Update() {
@@ -15,9 +16,9 @@ public class Coin : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(other.name);
         if (other.name == "Player") {
             gameManager.AddPoints();
+            gameManager.coinTaken();
         }
         Destroy(gameObject);
     }
