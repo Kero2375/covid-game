@@ -9,6 +9,8 @@ public class TutorialManagerBackOff : MonoBehaviour {
     public GameObject person;
     public GameObject hand;
     public GameObject[] sixPerson;
+
+
     public GameObject lastPerson;
     public GameObject popup;
 
@@ -17,7 +19,7 @@ public class TutorialManagerBackOff : MonoBehaviour {
     private bool hasSwipped = false;
     private bool secondSwip = false;
 
-    private bool flagSpawn = false;
+    private bool spawnedSevenPeople = false;
     float newYPos;
 
     private void Start() {
@@ -38,13 +40,16 @@ public class TutorialManagerBackOff : MonoBehaviour {
         yield return new WaitForSeconds(2);
         person.SetActive(true);
     }
-    IEnumerator SevenPerson() {
 
+    IEnumerator SevenPerson() {
         textPopup.text = "Attenzione, la stanza può contenere al massimo 6 persone, inizierai a perdere vite se ci saranno più di 6 persone dentro la stanza";
         yield return new WaitForSecondsRealtime(5);
-        flagSpawn = true;
+        spawnedSevenPeople = true;
     }
 
+    IEnumerator WaitSomeSecond() {
+        yield return new WaitForSecondsRealtime(2);
+    }
 
     void Update() {
         if (person) {
@@ -65,33 +70,35 @@ public class TutorialManagerBackOff : MonoBehaviour {
             }
         } else {
             hasSwipped = true;
-
         }
+        //I use last person because the variable person will be destroyed after the first part of the turorial
         if (lastPerson) {
             if (hasSwipped) {
                 if (!secondSwip) {
                     StartCoroutine(SevenPerson());
-                    if (flagSpawn) {
+                    if (spawnedSevenPeople) {
                         popup.SetActive(false);
                         Time.timeScale = 1;
                         lastPerson.SetActive(true);
-                        lastPerson.GetComponent<BoxCollider>().enabled = true;
+                        
                         foreach (GameObject person in sixPerson) {
                             person.SetActive(true);
                         }
-                        flagSpawn = false;
+                        spawnedSevenPeople = false;
                     }
 
                     if (lastPerson.transform.position.z < 12F) {
-                        hand.SetActive(true);
-                        hand.transform.Translate(new Vector3(20, 80, 0) * Time.unscaledDeltaTime);
-                        if (hand.GetComponent<RectTransform>().anchoredPosition.y >= 250F) {
-                            hand.GetComponent<RectTransform>().anchoredPosition = new Vector3(120F, 0, 0);
-                        }
                         lastPerson.GetComponent<BoxCollider>().enabled = true;
                         foreach (GameObject person in sixPerson) {
                             person.GetComponent<BoxCollider>().enabled = true;
                         }
+
+                        hand.SetActive(true);
+                        hand.transform.Translate(new Vector3(20, 80, 0) * Time.unscaledDeltaTime);
+                        if (hand.GetComponent<RectTransform>().anchoredPosition.y >= 200F) {
+                            hand.GetComponent<RectTransform>().anchoredPosition = new Vector3(100F, -30F, 0);
+                        }
+                                         
                         Time.timeScale = 0;
                     }
                 }
@@ -101,6 +108,7 @@ public class TutorialManagerBackOff : MonoBehaviour {
         }
     
         if(hasSwipped && secondSwip) {
+            StartCoroutine(WaitSomeSecond());
             textPopup.text = "Complimenti, hai completato il tutorial!";
             popup.SetActive(true);
             StartCoroutine(waitLoadScene());
