@@ -56,9 +56,9 @@ public abstract class GameManager : MonoBehaviour {
 
     // Lifes and Points
     public void DecreaseLifes() {
-        lifes--;
-        hearts[lifes].SetActive(false);
-        GameObject.Find("Damage").GetComponent<Animator>().SetTrigger("damage");
+        //lifes--;
+        //hearts[lifes].SetActive(false);
+        //GameObject.Find("Damage").GetComponent<Animator>().SetTrigger("damage");
     }
     public void AddPoints(int point = 1) {
         points += point; 
@@ -74,5 +74,9 @@ public abstract class GameManager : MonoBehaviour {
     }
     private void StartTime() { Time.timeScale = 1; }
     private void StopTime() { Time.timeScale = 0; }
+
+    public int GetPoints() {
+        return points;
+    }
 
 }

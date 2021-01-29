@@ -7,16 +7,16 @@ public class PeopleSpawnManager : MonoBehaviour{
     public GameObject[] peoplePrefabsWithoutMask;
     public GameObject[] peoplePrefabsMask;
 
-    public GameManagerMask spawnManager;
-
     private Spawner spawner = new Spawner();
     private float[] lanes = { -6F, -3F, 0F, 3F, +6F };
 
-    private float rate = 4F;
-    private float distanceFromPlayer = 70F;
+    private float rate = 3F;
+    private float distanceFromPlayer = 80F;
 
     private int lastNumber = 0;
+    
     private float prob = 0.3F;
+    private float speed = 8;
 
     //Altezza del suolo y = 0.6
     //Posizione player = 0 0 0 
@@ -39,7 +39,9 @@ public class PeopleSpawnManager : MonoBehaviour{
                 } else {
                     spawner.Spawn(peoplePrefabsWithoutMask);
                 }
-                spawner.GetObject().SetPosition(lanes[i], 0.6F, distanceFromPlayer + offset);
+                spawner.GetObjectSpawned().SetPosition(lanes[i], 0.6F, distanceFromPlayer + offset);
+                spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().speed = speed;
+
             }
         } else {
             for (int i = 0; i < numberPeople; i++) {
@@ -51,10 +53,12 @@ public class PeopleSpawnManager : MonoBehaviour{
                 } else {
                     spawner.Spawn(peoplePrefabsWithoutMask);
                 }
-                spawner.GetObject().SetPosition(randLane, 0.6F, distanceFromPlayer + offset);
+                spawner.GetObjectSpawned().SetPosition(randLane, 0.6F, distanceFromPlayer + offset);         
+                spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().speed = speed;
             }
         }          
     }
+
 
     //Ritorna un numero randomico compreso tra min e max e diverso da lastNumber
     private int GetRandom(int min,int max) {
@@ -64,6 +68,10 @@ public class PeopleSpawnManager : MonoBehaviour{
         }
         lastNumber = rand;
         return rand;
+    }
+
+    public void increaseSpeedPeople() {
+        speed += 0.5F;
     }
     
 }

@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManagerMask : GameManager {
+
+    public PeopleSpawnManager peopleSpawnManager;
+
     public override void Update() {
         base.Update();
-        
+
+
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) {
             //Input Mouse ritorna un Vector3, prendo quindi x e y
             Vector2 pos = Input.touchCount > 0 ? Input.GetTouch(0).position : new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -31,6 +35,12 @@ public class GameManagerMask : GameManager {
                     }
                 }
             }
+        }
+    }
+
+    public void CheckPoints() {
+        if (base.GetPoints() % 20 == 0 && base.GetPoints() != 0) {
+            peopleSpawnManager.increaseSpeedPeople();
         }
     }
 

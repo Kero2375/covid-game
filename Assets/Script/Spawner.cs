@@ -42,7 +42,7 @@ public class Spawner {
         return spawned;
     }
 
-    public Object GetObject() {
+    public Object GetObjectSpawned() {
         return spawned;
     }
 }

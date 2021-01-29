@@ -37,6 +37,7 @@ public class PeopleMovement : MonoBehaviour{
             //Elimina l'oggetto a cui lo script è attaccato
             Destroy(transform.root.gameObject);
             manager.AddPoints();
+            manager.CheckPoints();
         }
         
         //Se due persone vengono tra di loro collidono, distruggo una delle due
