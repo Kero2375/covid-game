@@ -2802,7 +2802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 4350719481656080017, guid: 7ac366d79c3b3d743a75c95b93372ec8, type: 3}
+  - {fileID: 4350719481656080017, guid: c85d602498e622e4dbe7e37b2ed1b412, type: 3}
+  - {fileID: 4350719481656080017, guid: 91c6c93c5120bd4439ca726d6bbfe487, type: 3}
   player: {fileID: 284794106}
   tileLenght: 60
   gameManager: {fileID: 1306974017}
