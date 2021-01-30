@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: {fileID: 1853861545}
   pointsUI: {fileID: 1853861544}
+  peopleSpawnManager: {fileID: 324781673}
 --- !u!4 &461606976
 Transform:
   m_ObjectHideFlags: 0
@@ -1057,19 +1058,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1853861543}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863333636}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 270896479}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 220, y: -36.073975}
-  m_SizeDelta: {x: 239.88098, y: 52.147835}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1942437969
 GameObject:
   m_ObjectHideFlags: 0

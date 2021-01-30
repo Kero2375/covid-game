@@ -96,4 +96,9 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
         SaveData.SetTutorial(SaveData.GAMES.MettiLaMascherina);
         SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
     }
+
+    public void skipTutorial() {
+        SaveData.SetTutorial(SaveData.GAMES.MettiLaMascherina);
+        SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
+    }
 }

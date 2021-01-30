@@ -824,6 +824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: {fileID: 1034298085}
   pointsUI: {fileID: 2119055303}
+  peopleSpawnManager: {fileID: 0}
 --- !u!4 &461606976
 Transform:
   m_ObjectHideFlags: 0
@@ -3516,8 +3517,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 461606975}
-        m_MethodName: loadGameScene
+      - m_Target: {fileID: 1235740444}
+        m_MethodName: skipTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
