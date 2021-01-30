@@ -116,12 +116,14 @@ public class TutorialManagerBackOff : MonoBehaviour {
     }
 
     public void skipTutorial() {
+        SaveData.SetTutorial(SaveData.GAMES.FuoriDiQua);
         SceneManager.LoadScene("BackOff", LoadSceneMode.Single);
     }
 
     private IEnumerator waitLoadScene() {
         //Aspetto 4 secondi e carico la nuova scena
         yield return new WaitForSeconds(2);
+        SaveData.SetTutorial(SaveData.GAMES.FuoriDiQua);
         SceneManager.LoadScene("BackOff", LoadSceneMode.Single);
     }
 }

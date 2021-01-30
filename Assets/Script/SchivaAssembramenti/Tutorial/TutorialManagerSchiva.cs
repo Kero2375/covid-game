@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TutorialManager : MonoBehaviour {
+public class TutorialManagerSchiva : MonoBehaviour {
     public SwipeManager swipeManager;
     public Transform player;
     public GameObject hand;
@@ -148,11 +148,13 @@ public class TutorialManager : MonoBehaviour {
     private IEnumerator waitLoadScene() {
         //Aspetto 4 secondi e carico la nuova scena
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("SchivaAssembramentiScene", LoadSceneMode.Single);
+        SaveData.SetTutorial(SaveData.GAMES.EvitaAssembramenti);
+        SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
     }
 
     public void skipTutorial() {
-        SceneManager.LoadScene("SchivaAssembramentiScene", LoadSceneMode.Single);
+        SaveData.SetTutorial(SaveData.GAMES.EvitaAssembramenti);
+        SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
     }
  
 }

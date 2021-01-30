@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial/SchivaAssembramentiTutorial.unity
     guid: 674dd251307e2f241b6f2302c14e7bdd
   - enabled: 1
-    path: Assets/Scenes/SchivaAssembramentiScene.unity
+    path: Assets/Scenes/SchivaAssembramenti.unity
     guid: 069a1e450fae506469b4874389828ae0
   - enabled: 1
     path: Assets/Scenes/MettiLaMascherina.unity
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BackOff.unity
     guid: 4762142298d62c34c9ffa87248e1d518
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/BackOffTutorial.unity
+    guid: 5d56011a9cd2c584abe3b9640140926a
   m_configObjects: {}

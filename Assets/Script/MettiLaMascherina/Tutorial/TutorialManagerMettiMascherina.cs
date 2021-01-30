@@ -93,6 +93,7 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
     private IEnumerator waitLoadScene() {
         //Aspetto 4 secondi e carico la nuova scena
         yield return new WaitForSeconds(2);
+        SaveData.SetTutorial(SaveData.GAMES.MettiLaMascherina);
         SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
     }
 }
