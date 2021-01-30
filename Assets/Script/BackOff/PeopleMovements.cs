@@ -10,9 +10,9 @@ public class PeopleMovements : MonoBehaviour {
 
     private void Start() {
         Vector3 random = new Vector3(
-            floor.bounds.size.x * Random.value,
+            floor.bounds.size.x - .4F * Random.value,
             0,
-            floor.bounds.size.z * Random.value);
+            floor.bounds.size.z - .4F * Random.value);
         target = floor.transform.position + random;
     }
 
