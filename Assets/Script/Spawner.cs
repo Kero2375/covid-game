@@ -41,5 +41,9 @@ public class Spawner {
         spawned = new Object(newObject);
         return spawned;
     }
+
+    public Object GetObjectSpawned() {
+        return spawned;
+    }
 }
 

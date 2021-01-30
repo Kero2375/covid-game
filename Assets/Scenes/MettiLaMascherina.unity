@@ -180,14 +180,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96be2eead54aa9b48be208565a0bb6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peoplePrefabs:
+  peoplePrefabsWithoutMask:
   - {fileID: 7934403313697991477, guid: 480699291e11feb418f001f2fec8a4a0, type: 3}
   - {fileID: 7934403313697991477, guid: 09cafa891d3ef2d45a45682436511ce7, type: 3}
   - {fileID: 7934403313697991477, guid: 16090371fa25a674a9522bc1b11d3cdf, type: 3}
+  peoplePrefabsMask:
   - {fileID: 7934403313697991477, guid: df5c427a7dd4ca247812c320059a2363, type: 3}
   - {fileID: 7934403313697991477, guid: 2bb2e1bbbb31a014e8835f5844ec850d, type: 3}
   - {fileID: 7934403313697991477, guid: dbb5ffba2033ee842a12ab672cc19989, type: 3}
-  spawnManager: {fileID: 461606975}
 --- !u!4 &324781674
 Transform:
   m_ObjectHideFlags: 0
