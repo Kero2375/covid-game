@@ -231,9 +231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f625f85b221cf64590c9fb355d9948e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSound: {fileID: 8300000, guid: 054fec76d07c0b54387899c93c1310a6, type: 3}
   gameOver: {fileID: 1853861545}
   pointsUI: {fileID: 1853861544}
   peopleSpawnManager: {fileID: 324781673}
+  putMaskSound: {fileID: 8300000, guid: 514ffc2612613c349a8fa0d28a4bd269, type: 3}
 --- !u!4 &461606976
 Transform:
   m_ObjectHideFlags: 0
@@ -914,6 +916,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 126040686840395865, guid: cc2988605318b0040b0947282bbf2a95,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1942437969}
     - target: {fileID: 8220940390668374412, guid: cc2988605318b0040b0947282bbf2a95,
         type: 3}
       propertyPath: m_Name
@@ -1087,7 +1094,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f79849b3a72c682419a46d8c10f75498, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 1
   Mute: 0

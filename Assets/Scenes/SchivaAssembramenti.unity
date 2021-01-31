@@ -2527,9 +2527,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a54eccb2bc57a947b8bacf7e427de45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSound: {fileID: 8300000, guid: 054fec76d07c0b54387899c93c1310a6, type: 3}
   gameOver: {fileID: 2067417776}
   pointsUI: {fileID: 1669393881}
   coinSound: {fileID: 8300000, guid: 850f0d9489ca79549b6e5e86a6768fb6, type: 3}
+  jumpSound: {fileID: 8300000, guid: a6c39952a0963a148895444e5fdf29e0, type: 3}
 --- !u!1 &1329079450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,7 +2730,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ed7b19a9cdcd7c841bc0f315239235f8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2886,6 +2888,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 126040686840395865, guid: cc2988605318b0040b0947282bbf2a95,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1712539514}
     - target: {fileID: 8220940390668374412, guid: cc2988605318b0040b0947282bbf2a95,
         type: 3}
       propertyPath: m_Name

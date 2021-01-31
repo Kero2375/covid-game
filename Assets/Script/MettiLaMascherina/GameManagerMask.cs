@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManagerMask : GameManager {
 
     public PeopleSpawnManager peopleSpawnManager;
+    public AudioClip putMaskSound;
 
     public override void Update() {
         base.Update();
@@ -30,7 +31,8 @@ public class GameManagerMask : GameManager {
                         hit.collider.GetComponentInChildren<SkinnedMeshRenderer>().material = newMat;
                         //Metto la maschera al personaggio
                         hit.collider.GetComponent<PeopleMovement>().putMask();
-                    } else {
+                        playPutMask();
+                    } else {                     
                         DecreaseLifes();
                     }
                 }
@@ -42,6 +44,10 @@ public class GameManagerMask : GameManager {
         if (base.GetPoints() % 20 == 0 && base.GetPoints() != 0) {
             peopleSpawnManager.increaseSpeedPeople();
         }
+    }
+
+    public void playPutMask() {
+        AudioSource.PlayClipAtPoint(putMaskSound, GameObject.Find("Main Camera").transform.position, 0.5F);
     }
 
 }

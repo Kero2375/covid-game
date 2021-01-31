@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public abstract class GameManager : MonoBehaviour {
+
+    public AudioClip damageSound;
+
     public GameObject gameOver;
     public GameObject pointsUI;
 
@@ -59,6 +62,7 @@ public abstract class GameManager : MonoBehaviour {
 
     // Lifes and Points
     public void DecreaseLifes() {
+        playDamageTaken();
         lifes--;
         hearts[lifes].SetActive(false);
         GameObject.Find("Damage").GetComponent<Animator>().SetTrigger("damage");
@@ -81,5 +85,10 @@ public abstract class GameManager : MonoBehaviour {
     public int GetPoints() {
         return points;
     }
+
+    public void playDamageTaken() {
+        AudioSource.PlayClipAtPoint(damageSound, GameObject.Find("Main Camera").transform.position, 0.05F);
+    }
+
 
 }
