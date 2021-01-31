@@ -7,7 +7,7 @@ public class Movement : Swipable {
     //Parametri pubblici
     public float speed = 10;
     public int jumpForceFactor = 300;
-    public GameManager gameManager;
+    public GameManagerSchiva gameManager;
 
     readonly Lane lane = new Lane(1);
     Dir moving = Dir.None;
@@ -42,6 +42,7 @@ public class Movement : Swipable {
     }
     override protected void OnUpSwipe() {
         if (!jumping)
+            gameManager.playJumpDone();
             Jump();
     }
 

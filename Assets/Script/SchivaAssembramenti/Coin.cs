@@ -18,7 +18,7 @@ public class Coin : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.name == "Player") {
             gameManager.AddPoints();
-            gameManager.coinTaken();
+            gameManager.playCoinTaken();
         }
         Destroy(gameObject);
     }
