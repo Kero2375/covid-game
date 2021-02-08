@@ -41,9 +41,10 @@ public class Movement : Swipable {
         }
     }
     override protected void OnUpSwipe() {
-        if (!jumping)
+        if (!jumping) {
             gameManager.playJumpDone();
             Jump();
+        }
     }
 
     private void Jump() {
