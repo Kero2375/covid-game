@@ -7,7 +7,7 @@ public class CollisionCounter : MonoBehaviour {
     public GameManager gameManager;
     public GameObject warningTxt;
     int count = 0;
-    float countdown = 11;
+    int seconds = 5;
     bool damaging = false;
 
     private void Update() {
@@ -34,7 +34,7 @@ public class CollisionCounter : MonoBehaviour {
 
     IEnumerator DamageCroutine() {
         damaging = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(seconds);
         gameManager.DecreaseLifes();
         damaging = false;
     }

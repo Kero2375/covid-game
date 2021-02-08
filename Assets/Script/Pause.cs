@@ -8,13 +8,17 @@ public class Pause : MonoBehaviour {
     public GameObject music;
 
     public void Click() {
-        music.GetComponent<AudioSource>().Pause();
+        try {
+            music.GetComponent<AudioSource>().Pause();
+        } catch { }
         Time.timeScale = 0;
         pausePanel.SetActive(true);
     }
 
     public void Continue() {
-        music.GetComponent<AudioSource>().UnPause();
+        try {
+            music.GetComponent<AudioSource>().UnPause();
+        } catch { }
         Time.timeScale = 1;
         pausePanel.SetActive(false);
     }

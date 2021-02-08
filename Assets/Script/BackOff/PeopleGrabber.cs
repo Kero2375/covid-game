@@ -6,7 +6,8 @@ public class PeopleGrabber : MonoBehaviour {
 
     private Plane plane;
     private float posY;
-    private bool isInside = false;
+    private bool moveEnabled = false;
+    public bool locked = false;
 
     void Start() {
         plane = new Plane(Vector3.up, Vector3.zero);
@@ -14,12 +15,12 @@ public class PeopleGrabber : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.name.Contains("Floor"))
-            isInside = true;
+        if (other.name.Contains("Floor"))
+            moveEnabled = true;
     }
 
     private void OnMouseDrag() {
-        if (!isInside) 
+        if (!moveEnabled || locked) 
             return;
         Vector2 mousePos = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mousePos);

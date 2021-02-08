@@ -12,9 +12,9 @@ public class TutorialMovement : MonoBehaviour {
 
     private void Start() {
         Vector3 random = new Vector3(
-            floor.bounds.size.x * Random.value,
+            (floor.bounds.size.x - 2F) * Random.value,
             0,
-            floor.bounds.size.z * Random.value);
+            (floor.bounds.size.z - 2F) * Random.value);
         target = floor.transform.position + random;
     }
     
@@ -32,10 +32,9 @@ public class TutorialMovement : MonoBehaviour {
         Time.timeScale = 1;      
     }
 
-    private void OnTriggerExit(Collider other) {   
+    private void OnTriggerExit(Collider other) {
         if (other.name.Contains("Floor")) {
             Destroy(gameObject);
-
         }
     }
   
