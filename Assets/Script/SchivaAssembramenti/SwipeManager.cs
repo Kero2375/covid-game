@@ -9,6 +9,11 @@ public class SwipeManager : MonoBehaviour {
     Direction direction = Direction.None;
 
     void Update() {
+        //Non fare niente se in pausa
+        Pause pausePanel = GameObject.Find("Pause").GetComponent<Pause>();
+        if (pausePanel && pausePanel.paused)
+            return;
+
         if (Input.touchCount > 0) {
             Touch t = Input.GetTouch(0);
 

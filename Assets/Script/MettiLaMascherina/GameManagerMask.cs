@@ -12,6 +12,11 @@ public class GameManagerMask : GameManager {
     public override void Update() {
         base.Update();
 
+        //Non fare niente se in pausa
+        Pause pausePanel = GameObject.Find("Pause").GetComponent<Pause>();
+        if (pausePanel && pausePanel.paused)
+            return;
+
 
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) {
             //Input Mouse ritorna un Vector3, prendo quindi x e y

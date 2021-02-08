@@ -20,8 +20,14 @@ public class PeopleGrabber : MonoBehaviour {
     }
 
     private void OnMouseDrag() {
+        //Non fare niente se in pausa
+        Pause pausePanel = GameObject.Find("Pause").GetComponent<Pause>();
+        if (pausePanel && pausePanel.paused)
+            return;
+
         if (!moveEnabled || locked) 
             return;
+
         Vector2 mousePos = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         plane.Raycast(ray, out float distance);
