@@ -19,6 +19,6 @@ public class GameManagerSchiva : GameManager {
 
 
     public void playJumpDone(){
-        AudioSource.PlayClipAtPoint(jumpSound, GameObject.Find("Main Camera").transform.position, 0.5F);
+        AudioSource.PlayClipAtPoint(jumpSound, GameObject.Find("Main Camera").transform.position, 1F);
     }
 }

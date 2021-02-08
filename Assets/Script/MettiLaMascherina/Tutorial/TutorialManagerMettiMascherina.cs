@@ -20,7 +20,6 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
     // Start is called before the first frame update
     void Start() {
         textPopup = popup.transform.GetChild(0).GetComponent<Text>();
-        positionPopup = popup.transform.position;
         StartCoroutine(TutorialText());
     }
 
@@ -43,8 +42,6 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
             if (firstPerson.transform.position.z > 12 && firstPerson.transform.position.z < 20 && !hasTapped) {
                 Time.timeScale = 0;
                 textPopup.text = "Esegui un tap sul personaggio per mettere la mascherina.";
-                //hand.transform.position = new Vector3(0, person.transform.position.y, 0);
-                popup.transform.position = new Vector3(popup.transform.position.x, popup.transform.position.y - 100, popup.transform.position.z);
                 popup.SetActive(true);
                 hand.SetActive(true);
                 hasTapped = true;
@@ -59,7 +56,6 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
 
         if (!firstPerson && secondPerson) {
             if(secondPerson.transform.position.z > 40  && secondPerson.transform.position.z < 90) {
-                popup.transform.position = positionPopup;
                 textPopup.text = "Attenzione, non mettere una mascherina a chi la ha già, perderai una vita.";
                 popup.SetActive(true);
             }
@@ -70,7 +66,6 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
             }
 
             if (secondPerson.transform.position.z > 12 && secondPerson.transform.position.z < 20 && !secondTap) {
-                popup.SetActive(false);
                 Time.timeScale = 0;
                 hand.SetActive(true);
                 secondTap = true;
