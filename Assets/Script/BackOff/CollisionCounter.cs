@@ -25,6 +25,7 @@ public class CollisionCounter : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
+        Debug.Log("Collided with" + other.name);
         count++;
     }
 

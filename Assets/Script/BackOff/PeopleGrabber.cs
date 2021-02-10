@@ -7,7 +7,6 @@ public class PeopleGrabber : MonoBehaviour {
     private Plane plane;
     private float posY;
     private bool moveEnabled = false;
-    public bool locked = false;
 
     void Start() {
         plane = new Plane(Vector3.up, Vector3.zero);
@@ -19,13 +18,17 @@ public class PeopleGrabber : MonoBehaviour {
             moveEnabled = true;
     }
 
+    public void SetMovable() {
+        moveEnabled = true;
+    }
+
     private void OnMouseDrag() {
         //Non fare niente se in pausa
         Pause pausePanel = GameObject.Find("Pause").GetComponent<Pause>();
         if (pausePanel && pausePanel.paused)
             return;
 
-        if (!moveEnabled || locked) 
+        if (!moveEnabled) 
             return;
 
         Vector2 mousePos = Input.mousePosition;
