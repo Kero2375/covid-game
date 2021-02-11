@@ -73,5 +73,37 @@ public static class SaveData {
         }
     }
 
+    //Quando chiamato, modifico l'array di colori passato (ref)
+    public static void ModifyColorAcquired(ref ShopColor[] colors) { 
+        for (int i=0; i<Shop.COLORS_NUM; i++) {
+            if (PlayerPrefs.HasKey("Color_" + i)) {
+                //imposto se è stato acquistato il colore (int = 1)
+                colors[i].acquired = PlayerPrefs.GetInt("Color_" + i) == 1;
+            } else {
+                //se non c'è lo salvo e imposto a false (primo avvio)
+                PlayerPrefs.SetInt("Color_" + i, 0);
+                PlayerPrefs.Save();
+                colors[i].acquired = false;
+            }
+        }
+    }
+
+    public static void Acquired(int index) {
+        PlayerPrefs.SetInt("Color_" + index, 1);
+    }
+
+    public static void SetSelectedColor(int colorIndex) {
+        PlayerPrefs.SetInt("SelectedColor",colorIndex);
+        PlayerPrefs.Save();
+    }
+
+    public static int GetSelectedColor() {
+        if(PlayerPrefs.HasKey("SelectedColor")) {
+            return PlayerPrefs.GetInt("SelectedColor");
+        } else {
+            PlayerPrefs.SetInt("SelectedColor", 0);
+            return 0;
+        }
+    }
 
 }
