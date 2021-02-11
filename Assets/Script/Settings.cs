@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Settings : MonoBehaviour{
@@ -10,6 +11,7 @@ public class Settings : MonoBehaviour{
     private Toggle soundToggle;
 
     void Start(){
+        
         musicToggle = GameObject.Find("ButtonMusic").GetComponent<Toggle>();
         soundToggle = GameObject.Find("ButtonSound").GetComponent<Toggle>();
         
@@ -47,8 +49,26 @@ public class Settings : MonoBehaviour{
         toggle.colors = cb;
     }
 
-    // Update is called once per frame
-    void Update(){
-        
+    public void LoadTutorialEvitaAssembramenti() {
+        LoadTutorial("SchivaAssembramentiTutorial");
     }
+
+    public void LoadTutorialMettiLaMascherina() {
+        LoadTutorial("MettiLaMascherinaTutorial");
+    }
+
+    public void LoadTutorialBackOff() {
+        LoadTutorial("BackOffTutorial");
+    }
+
+    private void LoadTutorial(string name) {
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
+    }
+
+    public void LoadRiferimentiNorme() {
+        SceneManager.LoadScene("RiferimentoNormeCovid",LoadSceneMode.Single);
+    }
+
+    
+
 }
