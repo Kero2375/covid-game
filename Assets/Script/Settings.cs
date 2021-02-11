@@ -18,6 +18,8 @@ public class Settings : MonoBehaviour{
         musicToggle.onValueChanged.AddListener(OnMusicToggleValueChanged);
         soundToggle.onValueChanged.AddListener(OnSoundToggleValueChanged);
 
+
+
         ToggleChange(musicToggle, SaveData.GetMusicOn());
         ToggleChange(soundToggle, SaveData.GetSoundOn());
 

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 04f85179da146354b98456350e8e7806
+  - enabled: 1
+    path: Assets/Scenes/RiferimentoNormeCovid.unity
+    guid: 3cb1c83e8efc3d146b9229accf9a9fed
   m_configObjects: {}
