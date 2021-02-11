@@ -534,10 +534,10 @@ RectTransform:
   m_Father: {fileID: 2145665116}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 51, y: -89}
-  m_SizeDelta: {x: 740, y: 200}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.000017166, y: -139}
+  m_SizeDelta: {x: 181.6289, y: 58.182495}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450041129
 MonoBehaviour:
@@ -1430,8 +1430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 51, y: -89}
-  m_SizeDelta: {x: 740, y: 200}
+  m_AnchoredPosition: {x: 50, y: -88}
+  m_SizeDelta: {x: 229.91895, y: 93.078064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783323941
 MonoBehaviour:
@@ -2065,16 +2065,5 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
