@@ -16,6 +16,8 @@ public abstract class GameManager : MonoBehaviour {
     private float speedFactor;
 
     private GameObject[] hearts;
+
+    protected bool soundOn;
     
     private int moralIndex;
     private static readonly string[] MORALS = {
@@ -28,6 +30,13 @@ public abstract class GameManager : MonoBehaviour {
         "Se hai sintomi simili all'influenza, resta a casa e contatta il tuo medico"};
 
     public virtual void Start() {
+        if (!SaveData.GetMusicOn()) {
+            GameObject.Find("Music").SetActive(false);
+        } else {
+            GameObject.Find("Music").SetActive(true);
+        }    
+        soundOn = SaveData.GetSoundOn();
+
         moralIndex = Random.Range(0, MORALS.Length);
         lifes = 3;
         points = 0;
@@ -39,7 +48,6 @@ public abstract class GameManager : MonoBehaviour {
         StartTime();
     }
 
-    int i = 0;
     public virtual void Update() {
         if(lifes == 0 && !gameOver.activeSelf) {
             StopTime();
@@ -47,7 +55,6 @@ public abstract class GameManager : MonoBehaviour {
             gameOver.transform.GetChild(1).GetComponent<Text>().text = MORALS[moralIndex];
             gameOver.transform.GetChild(2).GetComponent<Text>().text = "Punti guadagnati: " + points;
             SaveData.AddPoints(points);
-            Debug.Log(++i);
         }
     }
 
@@ -85,9 +92,10 @@ public abstract class GameManager : MonoBehaviour {
     public int GetPoints() {
         return points;
     }
-
     public void playDamageTaken() {
-        AudioSource.PlayClipAtPoint(damageSound, GameObject.Find("Main Camera").transform.position, 0.05F);
+        if (soundOn) {
+            AudioSource.PlayClipAtPoint(damageSound, GameObject.Find("Main Camera").transform.position, 0.05F);
+        }
     }
 
 

@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial/BackOffTutorial.unity
     guid: 5d56011a9cd2c584abe3b9640140926a
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 04f85179da146354b98456350e8e7806
   m_configObjects: {}

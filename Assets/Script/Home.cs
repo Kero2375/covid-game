@@ -9,6 +9,7 @@ public class Home : MonoBehaviour{
     private void Start() {
         SaveData.Load();
         points.text = SaveData.GetPoints().ToString();
+        
     }
 
     public void LoadAssembramenti() {
@@ -32,6 +33,16 @@ public class Home : MonoBehaviour{
         } else {
             SceneManager.LoadScene("MettiLaMascherinaTutorial", LoadSceneMode.Single);
         }
-        
+     }
+
+    public void LoadHome() {
+        SceneManager.LoadScene("SchermataIniziale", LoadSceneMode.Single);
     }
+
+    public void LoadSetting() {
+        SceneManager.LoadScene("Settings", LoadSceneMode.Single);
+    }
+ 
+
+
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public static class SaveData {
     private static int points;
     private static IDictionary<string, bool> tutorial = new Dictionary<string, bool>();
+    private static bool musicOn, soundOn;
+
     public enum GAMES {
         EvitaAssembramenti,
         MettiLaMascherina,
@@ -52,10 +54,39 @@ public static class SaveData {
         return points;
     }
 
+    public static bool GetMusicOn() {
+        return musicOn;
+    }
+
+    public static bool GetSoundOn() {
+        return soundOn;
+    }
+
+    public static void SaveMusicPreferences(bool value){
+        musicOn = value;
+        int valueMusic = 0;
+        if (value) {
+            valueMusic = 1;
+        }
+        PlayerPrefs.SetInt("Music", valueMusic);
+        PlayerPrefs.Save();
+    }
+    public static void SaveSoundPreferences(bool value) {
+        soundOn = value;
+        int valueSound = 0;
+        if (value) {
+            valueSound = 1;
+        }
+        PlayerPrefs.SetInt("Sound", valueSound);
+        PlayerPrefs.Save();
+    }
+
     public static void Load() {
         LoadPoints();
         LoadTutorial();
+        LoadMusicSoundPreferences();
     }
+
     private static void LoadPoints() {
         points = PlayerPrefs.GetInt("Points");
     }
@@ -71,6 +102,14 @@ public static class SaveData {
                 PlayerPrefs.Save();
             }
         }
+    }
+
+    private static void LoadMusicSoundPreferences() {
+        Debug.Log("Music" + PlayerPrefs.GetInt("Music"));
+
+        Debug.Log("Sound" + PlayerPrefs.GetInt("Sound"));
+        musicOn = PlayerPrefs.GetInt("Music") > 0 ? true : false;
+        soundOn = PlayerPrefs.GetInt("Sound") > 0 ? true : false;
     }
 
 

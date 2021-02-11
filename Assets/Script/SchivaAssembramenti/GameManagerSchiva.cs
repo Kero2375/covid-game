@@ -14,11 +14,15 @@ public class GameManagerSchiva : GameManager {
 
 
     public void playCoinTaken(){
-        AudioSource.PlayClipAtPoint(coinSound, GameObject.Find("Main Camera").transform.position,0.1F);
+        if (soundOn) {
+            AudioSource.PlayClipAtPoint(coinSound, GameObject.Find("Main Camera").transform.position, 0.1F);
+        }
     }
 
 
     public void playJumpDone(){
-        AudioSource.PlayClipAtPoint(jumpSound, GameObject.Find("Main Camera").transform.position, 1F);
+        if (soundOn) {
+            AudioSource.PlayClipAtPoint(jumpSound, GameObject.Find("Main Camera").transform.position, 1F);
+        }
     }
 }

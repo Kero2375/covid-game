@@ -52,7 +52,9 @@ public class GameManagerMask : GameManager {
     }
 
     public void playPutMask() {
-        AudioSource.PlayClipAtPoint(putMaskSound, GameObject.Find("Main Camera").transform.position, 0.5F);
+        if (soundOn) {
+            AudioSource.PlayClipAtPoint(putMaskSound, GameObject.Find("Main Camera").transform.position, 0.5F);
+        }
     }
 
 }
