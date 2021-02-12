@@ -2,9 +2,9 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Home : MonoBehaviour{
+public class Home : MonoBehaviour {
 
-    public Text points; 
+    public Text points;
 
     private void Start() {
         SaveData.Load();
@@ -26,7 +26,7 @@ public class Home : MonoBehaviour{
             SceneManager.LoadScene("BackOffTutorial", LoadSceneMode.Single);
         }
     }
-    
+
     public void LoadMascherina() {
         if (SaveData.IsTutorialDone(SaveData.GAMES.MettiLaMascherina)) {
             SceneManager.LoadScene("MettiLaMascherina", LoadSceneMode.Single);
@@ -42,7 +42,9 @@ public class Home : MonoBehaviour{
     public void LoadSetting() {
         SceneManager.LoadScene("Settings", LoadSceneMode.Single);
     }
- 
 
+    public void LoadShop() {
+        SceneManager.LoadScene("Shop", LoadSceneMode.Single);
+    }
 
 }

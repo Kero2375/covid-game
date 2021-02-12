@@ -13,6 +13,11 @@ public class Movement : Swipable {
     Dir moving = Dir.None;
     private bool jumping = false;
 
+    private void Start() {
+        Material mat = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        SaveData.ApplyMask(ref mat);
+    }
+
     override protected void Update() {
         base.Update();
         Run();

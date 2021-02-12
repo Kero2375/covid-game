@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RiferimentoNormeCovid.unity
     guid: 3cb1c83e8efc3d146b9229accf9a9fed
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: b4075ad5f80163e4d9f594f94876f56e
   m_configObjects: {}
