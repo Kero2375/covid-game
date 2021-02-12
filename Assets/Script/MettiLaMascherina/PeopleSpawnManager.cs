@@ -5,7 +5,6 @@ using UnityEngine;
 public class PeopleSpawnManager : MonoBehaviour{
 
     public GameObject[] peoplePrefabsWithoutMask;
-    public GameObject[] peoplePrefabsMask;
 
     private Spawner spawner = new Spawner();
     private float[] lanes = { -6F, -3F, 0F, 3F, +6F };
@@ -34,10 +33,11 @@ public class PeopleSpawnManager : MonoBehaviour{
             for(int i = 0; i < 5; i++) {
                 offset = Random.Range(-8F, 8F);
                 //Sceglie cosa spawnare con una certa probabilità
+                spawner.Spawn(peoplePrefabsWithoutMask);
                 if (Random.value <= prob) { 
-                    spawner.Spawn(peoplePrefabsMask);
-                } else {
-                    spawner.Spawn(peoplePrefabsWithoutMask);
+                    Material skin = spawner.GetObjectSpawned().GetObject().GetComponentInChildren<SkinnedMeshRenderer>().material;
+                    SaveData.ApplyMask(ref skin);
+                    spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().putMask();
                 }
                 spawner.GetObjectSpawned().SetPosition(lanes[i], 0.6F, distanceFromPlayer + offset);
                 spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().speed = speed;
@@ -48,10 +48,11 @@ public class PeopleSpawnManager : MonoBehaviour{
                 //Offset per far in modo che tutti i personaggi non siano allineati perfettamente
                 offset = Random.Range(-8F, 8F);       
                 float randLane = lanes[GetRandom(0, 5)];
+                spawner.Spawn(peoplePrefabsWithoutMask).GetObject();
                 if (Random.value <= prob) {
-                    spawner.Spawn(peoplePrefabsMask);
-                } else {
-                    spawner.Spawn(peoplePrefabsWithoutMask);
+                    Material skin = spawner.GetObjectSpawned().GetObject().GetComponentInChildren<SkinnedMeshRenderer>().material;
+                    SaveData.ApplyMask(ref skin);
+                    spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().putMask();
                 }
                 spawner.GetObjectSpawned().SetPosition(randLane, 0.6F, distanceFromPlayer + offset);         
                 spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().speed = speed;

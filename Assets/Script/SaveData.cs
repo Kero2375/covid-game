@@ -5,6 +5,8 @@ using UnityEngine;
 public static class SaveData {
     private static int points;
     private static IDictionary<string, bool> tutorial = new Dictionary<string, bool>();
+    private static int selectedMask = 0;
+
     public enum GAMES {
         EvitaAssembramenti,
         MettiLaMascherina,
@@ -55,9 +57,16 @@ public static class SaveData {
     public static void Load() {
         LoadPoints();
         LoadTutorial();
+        LoadColor();
     }
     private static void LoadPoints() {
-        points = PlayerPrefs.GetInt("Points");
+        if (PlayerPrefs.HasKey("Points")) {
+            points = PlayerPrefs.GetInt("Points");
+        } else {
+            PlayerPrefs.SetInt("Points", 0);
+            PlayerPrefs.Save();
+            points = 0;
+        }
     }
     private static void LoadTutorial() {
         string[] gameNames = Enum.GetNames(typeof(GAMES));
@@ -70,6 +79,16 @@ public static class SaveData {
                 PlayerPrefs.SetInt(game, 0);
                 PlayerPrefs.Save();
             }
+        }
+    }
+
+    private static void LoadColor() {
+        if (PlayerPrefs.HasKey("SelectedColor")) {
+            selectedMask = PlayerPrefs.GetInt("SelectedColor");
+        } else {
+            PlayerPrefs.SetInt("SelectedColor", 0);
+            PlayerPrefs.Save();
+            selectedMask = 0;
         }
     }
 
@@ -95,6 +114,7 @@ public static class SaveData {
     public static void SetSelectedColor(int colorIndex) {
         PlayerPrefs.SetInt("SelectedColor",colorIndex);
         PlayerPrefs.Save();
+        selectedMask = colorIndex;
     }
 
     public static int GetSelectedColor() {
@@ -106,4 +126,10 @@ public static class SaveData {
         }
     }
 
+    public static void ApplyMask(ref Material mat) {
+        Texture color = Resources.Load("mask/Color_" + selectedMask) as Texture;
+        Texture mask = Resources.Load("mask/mask") as Texture;
+        mat.SetTexture("_MaskColor", color);
+        mat.SetTexture("_MaskTex", mask);
+    }
 }

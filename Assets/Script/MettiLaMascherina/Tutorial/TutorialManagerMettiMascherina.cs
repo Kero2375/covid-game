@@ -47,7 +47,7 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
                 hasTapped = true;
             }
 
-            if (firstPerson.GetComponentInChildren<SkinnedMeshRenderer>().material.name.Contains("_mask") && hasTapped) {
+            if (firstPerson.GetComponentInChildren<SkinnedMeshRenderer>().material.GetTexture("_MaskTex").name == "mask" && hasTapped) {
                 popup.SetActive(false);
                 hand.SetActive(false);
                 Time.timeScale = 1;
@@ -71,7 +71,7 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
                 secondTap = true;
             }
 
-            if (secondPerson.GetComponentInChildren<SkinnedMeshRenderer>().material.name.Contains("_mask") && secondTap) {
+            if (secondPerson.GetComponentInChildren<SkinnedMeshRenderer>().material.GetTexture("_MaskTex").name == "mask" && secondTap) {
                 popup.SetActive(false);
                 hand.SetActive(false);
                 Time.timeScale = 1;

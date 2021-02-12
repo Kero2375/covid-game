@@ -11,6 +11,9 @@ public class TutorialMovement : MonoBehaviour {
     public MeshRenderer floor;
 
     private void Start() {
+        Material mat = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        SaveData.ApplyMask(ref mat);
+
         Vector3 random = new Vector3(
             (floor.bounds.size.x - 2F) * Random.value,
             0,
