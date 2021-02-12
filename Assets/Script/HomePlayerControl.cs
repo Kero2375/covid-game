@@ -8,6 +8,7 @@ public class HomePlayerControl : MonoBehaviour {
     private Material material;
 
     private void Start() {
+        SaveData.Load();
         material = GetComponentInChildren<SkinnedMeshRenderer>().material;
         InvokeRepeating("ChangeTexture", 0, 10);
         SaveData.ApplyMask(ref material);

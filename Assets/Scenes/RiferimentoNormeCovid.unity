@@ -405,7 +405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 152}
   m_SizeDelta: {x: 370, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600431358
@@ -437,7 +437,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: cf93e6400f3a3f04cab38a286a87e0a2, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8c61dc12d8790b04a964974d3f565f77, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7f7424951ef70ff4a9f7330f3f47e44c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -534,7 +534,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 1500, y: 300}
+  m_SizeDelta: {x: 1650, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029979706
 MonoBehaviour:
@@ -568,7 +568,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Norme covid da seguire
+  m_Text: "Regole pi\xF9 importanti"
 --- !u!222 &1029979707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -898,7 +898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -175}
+  m_AnchoredPosition: {x: 0, y: -160}
   m_SizeDelta: {x: 650, y: 700}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1892312017
@@ -933,7 +933,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1. Lavarsi spesso le mani con acqua e sapone o, in alternativa, con un
+  m_Text: '1. Lavati spesso le mani con acqua e sapone o, in alternativa, con un
     gel a base alcolica.
 
     2. Evita abbracci e strette di mano.
@@ -941,19 +941,19 @@ MonoBehaviour:
     3. Mantieni
     una distanza di almeno un metro dalle altre persone.
 
-    4. Starnutire e/o tossire
-    in un fazzoletto evitando il contatto delle mani
+    4. Starnutisci e/o
+    tossisci in un fazzoletto evitando il contatto delle mani.
 
-    5. Non toccarsi occhi,
-    naso e bocca con le mani.
+    5. Non toccarti
+    occhi, naso e bocca con le mani.
 
-    6. Coprirsi naso e bocca se si starnutisce o tossice.
+    6. Copri naso e bocca se starnutisci o
+    tossisci.
 
-    7.
-    Pulisci le superfici con disiffentanti a base di cloro o alcool.
+    7. Pulisci le superfici con disiffentanti a base di cloro o alcool.
 
-    8. Non
-    usare bottiglie e bicchieri toccati da altri.'
+    8.
+    Non usare bottiglie e bicchieri toccati da altri.'
 --- !u!222 &1892312018
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -999,7 +999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1060}
+  m_AnchoredPosition: {x: 0, y: -1000}
   m_SizeDelta: {x: 650, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895258053
@@ -1127,8 +1127,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -900}
-  m_SizeDelta: {x: 650, y: 104.835846}
+  m_AnchoredPosition: {x: 0, y: -875}
+  m_SizeDelta: {x: 650, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1945778914
 MonoBehaviour:
@@ -1156,7 +1156,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

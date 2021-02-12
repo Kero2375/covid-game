@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour{
 
+    public Sprite toggleOn, toggleOff;
+
     private Toggle musicToggle;
     private Toggle soundToggle;
 
@@ -35,18 +37,24 @@ public class Settings : MonoBehaviour{
         SaveData.SaveMusicPreferences(isOn);
     }
 
-    private void ToggleChange(Toggle toggle,bool isOn) {
+    private void ToggleChange(Toggle toggle, bool isOn) {
         ColorBlock cb = toggle.colors;
+        Color red, green;
+        ColorUtility.TryParseHtmlString("#C85050", out red);
+        ColorUtility.TryParseHtmlString("#6D9B71", out green);
+
         if (isOn) {
             toggle.isOn = true;
-            cb.selectedColor = Color.green;
-            cb.normalColor = Color.green;
-            cb.highlightedColor = Color.green;
+            cb.selectedColor = green;
+            cb.normalColor = green;
+            cb.highlightedColor = green;
+            toggle.image.sprite = toggleOn;
         } else {
             toggle.isOn = false;
-            cb.selectedColor = Color.red;
-            cb.normalColor = Color.red;
-            cb.highlightedColor = Color.red;
+            cb.selectedColor = red;
+            cb.normalColor = red;
+            cb.highlightedColor = red;
+            toggle.image.sprite = toggleOff;
         }
         toggle.colors = cb;
     }
