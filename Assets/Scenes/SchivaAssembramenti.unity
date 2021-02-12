@@ -2715,6 +2715,7 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 054fec76d07c0b54387899c93c1310a6, type: 3}
   gameOver: {fileID: 2067417776}
   pointsUI: {fileID: 1669393881}
+  music: {fileID: 1712539515}
   coinSound: {fileID: 8300000, guid: 850f0d9489ca79549b6e5e86a6768fb6, type: 3}
   jumpSound: {fileID: 8300000, guid: a6c39952a0963a148895444e5fdf29e0, type: 3}
 --- !u!1 &1329079450
@@ -3077,7 +3078,7 @@ PrefabInstance:
         type: 3}
       propertyPath: music
       value: 
-      objectReference: {fileID: 1712539514}
+      objectReference: {fileID: 1712539515}
     - target: {fileID: 8220940390668374412, guid: cc2988605318b0040b0947282bbf2a95,
         type: 3}
       propertyPath: m_Name

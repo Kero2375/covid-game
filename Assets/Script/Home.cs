@@ -7,6 +7,7 @@ public class Home : MonoBehaviour {
     public Text points;
 
     private void Start() {
+        Time.timeScale = 1;
         SaveData.Load();
         points.text = SaveData.GetPoints().ToString();
         

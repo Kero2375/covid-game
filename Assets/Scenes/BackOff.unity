@@ -403,7 +403,7 @@ PrefabInstance:
         type: 3}
       propertyPath: music
       value: 
-      objectReference: {fileID: 413683593}
+      objectReference: {fileID: 413683594}
     - target: {fileID: 8220940390668374412, guid: cc2988605318b0040b0947282bbf2a95,
         type: 3}
       propertyPath: m_Name
@@ -998,6 +998,7 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 054fec76d07c0b54387899c93c1310a6, type: 3}
   gameOver: {fileID: 2099352361}
   pointsUI: {fileID: 1006669075}
+  music: {fileID: 413683594}
 --- !u!4 &1563658409
 Transform:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public abstract class GameManager : MonoBehaviour {
 
     public GameObject gameOver;
     public GameObject pointsUI;
+    public AudioSource music;
 
     private int lifes;
     private int points;
@@ -30,13 +31,9 @@ public abstract class GameManager : MonoBehaviour {
         "Se hai sintomi simili all'influenza, resta a casa e contatta il tuo medico"};
 
     public virtual void Start() {
-        if (!SaveData.GetMusicOn()) {
-            GameObject.Find("Music").SetActive(false);
-        } else {
-            GameObject.Find("Music").SetActive(true);
-        }    
-        soundOn = SaveData.GetSoundOn();
-
+        SaveData.Load();
+        if(SaveData.GetMusicOn())
+            music.Play();
         moralIndex = Random.Range(0, MORALS.Length);
         lifes = 3;
         points = 0;
@@ -49,8 +46,15 @@ public abstract class GameManager : MonoBehaviour {
     }
 
     public virtual void Update() {
+        if (SaveData.GetMusicOn() && !music.isPlaying && !GameObject.Find("Pause").GetComponent<Pause>().paused) 
+            music.Play();
+        else if (!SaveData.GetMusicOn())
+            music.Stop();
+        soundOn = SaveData.GetSoundOn();
         if(lifes == 0 && !gameOver.activeSelf) {
             StopTime();
+            if(SaveData.GetMusicOn())
+                music.Stop();
             gameOver.SetActive(true);
             gameOver.transform.GetChild(1).GetComponent<Text>().text = MORALS[moralIndex];
             gameOver.transform.GetChild(2).GetComponent<Text>().text = "Punti guadagnati: " + points;
