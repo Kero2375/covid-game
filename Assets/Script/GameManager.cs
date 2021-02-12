@@ -30,7 +30,6 @@ public abstract class GameManager : MonoBehaviour {
         "Se hai sintomi simili all'influenza, resta a casa e contatta il tuo medico"};
 
     public virtual void Start() {
-
         if (!SaveData.GetMusicOn()) {
             GameObject.Find("Music").SetActive(false);
         } else {

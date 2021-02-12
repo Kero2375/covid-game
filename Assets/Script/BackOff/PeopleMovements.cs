@@ -9,6 +9,8 @@ public class PeopleMovements : MonoBehaviour {
     Vector3 target;
 
     private void Start() {
+        Material mat = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        SaveData.ApplyMask(ref mat);
         Vector3 random = new Vector3(
             (floor.bounds.size.x - .4F) * Random.value,
             0,

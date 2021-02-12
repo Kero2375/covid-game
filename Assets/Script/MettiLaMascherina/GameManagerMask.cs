@@ -28,13 +28,10 @@ public class GameManagerMask : GameManager {
                 if (hit.collider.CompareTag("Person")) {
                     //Controllo se il personaggio ha la maschera o no
                     if (!hit.collider.GetComponent<PeopleMovement>().hasMask()) {
-                        //Prendo il nome della skin del personaggio
-                        string s = hit.collider.GetComponentInChildren<SkinnedMeshRenderer>().material.name.Split(' ')[0] + "_mask";
-                        //Aggiungo _mask per andare a prendere la skin dello stesso personaggio però con la mascherina
-                        Material newMat = Resources.Load<Material>(s);
-                        //Imposto la nuova skin
-                        hit.collider.GetComponentInChildren<SkinnedMeshRenderer>().material = newMat;
+                        //Prendo la skin del personaggio
+                        Material m = hit.collider.GetComponentInChildren<SkinnedMeshRenderer>().material;
                         //Metto la maschera al personaggio
+                        SaveData.ApplyMask(ref m);
                         hit.collider.GetComponent<PeopleMovement>().putMask();
                         playPutMask();
                     } else {                     
@@ -52,7 +49,9 @@ public class GameManagerMask : GameManager {
     }
 
     public void playPutMask() {
-        AudioSource.PlayClipAtPoint(putMaskSound, GameObject.Find("Main Camera").transform.position, 0.5F);
+        if (soundOn) {
+            AudioSource.PlayClipAtPoint(putMaskSound, GameObject.Find("Main Camera").transform.position, 0.5F);
+        }
     }
 
 }

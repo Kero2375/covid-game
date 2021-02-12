@@ -11,8 +11,7 @@ public class Pause : MonoBehaviour {
     public void Click() {
         try {
             music.GetComponent<AudioSource>().Pause();
-        } catch { }
-        Time.timeScale = 0;
+        } catch { }        Time.timeScale = 0;
         paused = true;
         pausePanel.SetActive(true);
     }
@@ -30,4 +29,5 @@ public class Pause : MonoBehaviour {
         Time.timeScale = 1;
         SceneManager.LoadScene("SchermataIniziale", LoadSceneMode.Single);
     }
+
 }
