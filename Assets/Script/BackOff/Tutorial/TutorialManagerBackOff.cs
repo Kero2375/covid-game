@@ -79,7 +79,6 @@ public class TutorialManagerBackOff : MonoBehaviour {
             if (hasSwipped) {
                 foreach (GameObject person in fivePeople) {
                     if (!person) {
-                        Debug.Log("DEAD");
                         secondSwipe = true;
                     }
                 }
@@ -97,9 +96,11 @@ public class TutorialManagerBackOff : MonoBehaviour {
 
                     if (lastPerson.transform.position.z < 14F) {
                         StartCoroutine(WaitSomeSecond());
+                        lastPerson.GetComponent<BoxCollider>().enabled = true;
                         lastPerson.GetComponent<PeopleGrabber>().enabled = true;
                         lastPerson.GetComponent<PeopleGrabber>().SetMovable();
                         foreach (GameObject person in fivePeople) {
+                            person.GetComponent<BoxCollider>().enabled = true;
                             person.GetComponent<PeopleGrabber>().enabled = true;
                             person.GetComponent<PeopleGrabber>().SetMovable();
                         }
