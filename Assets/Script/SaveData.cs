@@ -8,6 +8,8 @@ public static class SaveData {
     private static bool musicOn, soundOn;
     private static int selectedMask = 0;
 
+    
+
     public enum GAMES {
         EvitaAssembramenti,
         MettiLaMascherina,
@@ -123,9 +125,6 @@ public static class SaveData {
     }
 
     private static void LoadMusicSoundPreferences() {
-        Debug.Log("Music" + PlayerPrefs.GetInt("Music"));
-
-        Debug.Log("Sound" + PlayerPrefs.GetInt("Sound"));
         musicOn = PlayerPrefs.GetInt("Music") > 0 ? true : false;
         soundOn = PlayerPrefs.GetInt("Sound") > 0 ? true : false;
     }

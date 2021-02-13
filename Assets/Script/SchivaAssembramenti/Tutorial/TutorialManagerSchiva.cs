@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TutorialManagerSchiva : MonoBehaviour {
     public SwipeManager swipeManager;
     public Transform player;
+    public BoxCollider playerCollider;
     public GameObject hand;
     public GameObject popup;
     public GameObject point;
@@ -19,13 +20,29 @@ public class TutorialManagerSchiva : MonoBehaviour {
     bool swippedUp = false;
     bool coinTaken = false;
 
+    public AudioClip coinSound;
+    public AudioClip jumpSound;
+
+    public GameObject[] coins = new GameObject[3];
 
     void Update() {
         //Movimento
         player.Translate(new Vector3(0, 0, speed * Time.deltaTime));
 
+        //Movimento e scontro con le monete
+        for(int i=0;i<3;i++) {
+            if (coins[i]) {
+                coins[i].transform.Rotate(new Vector3(0, 200 * Time.deltaTime, 0));
+                if (coins[i].GetComponent<BoxCollider>().bounds.Intersects(playerCollider.bounds)) {
+                    playCoinTaken();
+                    Destroy(coins[i]);
+                }
+
+            }
+        }
+        
         //Faccio vedere il popup con scritto "tutorial"
-        if(player.position.z <= 30F) {
+        if (player.position.z <= 30F) {
             popup.transform.GetChild(0).GetComponent<Text>().text = "Tutorial";
             popup.SetActive(true);
         }
@@ -115,6 +132,7 @@ public class TutorialManagerSchiva : MonoBehaviour {
                 hand.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
                 player.GetComponent<Rigidbody>().AddForce(new Vector3(0, 300, 0));
                 player.GetComponent<Animator>().SetBool("jumping", true);
+                playJumpDone();
             }
         }
 
@@ -156,5 +174,15 @@ public class TutorialManagerSchiva : MonoBehaviour {
         SaveData.SetTutorial(SaveData.GAMES.EvitaAssembramenti);
         SceneManager.LoadScene("SchivaAssembramenti", LoadSceneMode.Single);
     }
- 
+
+    public void playCoinTaken() {
+        AudioSource.PlayClipAtPoint(coinSound, GameObject.Find("Main Camera").transform.position, 0.1F);
+    }
+
+
+    public void playJumpDone() {
+        AudioSource.PlayClipAtPoint(jumpSound, GameObject.Find("Main Camera").transform.position, 1F);
+    }
+
+
 }

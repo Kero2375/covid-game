@@ -76,7 +76,7 @@ public abstract class GameManager : MonoBehaviour {
         playDamageTaken();
         lifes--;
         hearts[lifes].SetActive(false);
-        GameObject.Find("Damage").GetComponent<Animator>().enabled = false;
+        GameObject.Find("Damage").GetComponent<Animator>().SetTrigger("damage");
     }
     public void AddPoints(int point = 1) {
         points += point; 
