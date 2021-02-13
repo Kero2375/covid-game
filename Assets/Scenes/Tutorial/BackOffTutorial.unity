@@ -130,7 +130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 805497989, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 805497990, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
@@ -331,7 +331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 805497989, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 805497990, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
@@ -644,7 +644,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 805497989, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 805497990, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
@@ -1262,7 +1262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 805497989, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 805497990, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
@@ -1721,7 +1721,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 805497989, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 805497990, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
@@ -2068,7 +2068,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 805497989, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 805497990, guid: 4d0a67a2805351845bf55f59529c72ec, type: 3}
       propertyPath: m_Enabled

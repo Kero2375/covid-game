@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManagerMask : GameManager {
 
-    public PeopleSpawnManager peopleSpawnManager;
+    public PeopleSpawnManager peopleSpawnManager = null;
     public AudioClip putMaskSound;
 
     public override void Update() {
@@ -17,8 +17,8 @@ public class GameManagerMask : GameManager {
         if (pausePanel && pausePanel.paused)
             return;
 
-
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) {
+       
             //Input Mouse ritorna un Vector3, prendo quindi x e y
             Vector2 pos = Input.touchCount > 0 ? Input.GetTouch(0).position : new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             Ray raycast = Camera.main.ScreenPointToRay(pos);

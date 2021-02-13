@@ -19,6 +19,10 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start() {
+        //Questo lo faccio perchè, se prendo danno mentre Time.timescale = 0, non si vedrebbe il rosso
+        //Nel momento in cui riparte il tempo, viene mostrato anche il rosso 
+        GameObject.Find("Damage").GetComponent<Animator>().enabled = false;
+
         textPopup = popup.transform.GetChild(0).GetComponent<Text>();
         StartCoroutine(TutorialText());
     }
