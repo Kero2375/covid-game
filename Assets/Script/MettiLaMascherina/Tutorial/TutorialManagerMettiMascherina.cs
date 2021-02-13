@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class TutorialManagerMettiMascherina : MonoBehaviour{
 
-
+    public GameManagerMask manager;
+    
     public GameObject popup;
     public GameObject hand;
     public GameObject firstPerson;
@@ -16,6 +17,8 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
     private bool secondTap = false;
     private Text textPopup;
     private Vector3 positionPopup;
+    private bool soundPlayed = false;
+    private bool secondSoundPlayed = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -51,10 +54,15 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
                 hasTapped = true;
             }
 
-            if (firstPerson.GetComponentInChildren<SkinnedMeshRenderer>().material.GetTexture("_MaskTex").name == "mask" && hasTapped) {
+            if (firstPerson.GetComponentInChildren<SkinnedMeshRenderer>().material.GetTexture("_MaskTex").name == "mask" && hasTapped) {             
                 popup.SetActive(false);
                 hand.SetActive(false);
                 Time.timeScale = 1;
+                if (!soundPlayed) {
+                    manager.playPutMask();
+                    soundPlayed = true;
+                }
+                
             }
         }
 
@@ -75,10 +83,15 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
                 secondTap = true;
             }
 
+
             if (secondPerson.GetComponentInChildren<SkinnedMeshRenderer>().material.GetTexture("_MaskTex").name == "mask" && secondTap) {
                 popup.SetActive(false);
                 hand.SetActive(false);
                 Time.timeScale = 1;
+                if (!secondSoundPlayed) {
+                    manager.playPutMask();
+                    secondSoundPlayed = true;
+                }
             }
         }
 

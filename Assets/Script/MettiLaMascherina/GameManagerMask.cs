@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManagerMask : GameManager {
 
-    public PeopleSpawnManager peopleSpawnManager = null;
+    public PeopleSpawnManager peopleSpawnManager;
     public AudioClip putMaskSound;
 
     public override void Update() {
@@ -48,7 +48,7 @@ public class GameManagerMask : GameManager {
         }
     }
 
-    public void playPutMask() {
+    public void playPutMask() {        
         if (soundOn) {
             AudioSource.PlayClipAtPoint(putMaskSound, GameObject.Find("Main Camera").transform.position, 0.5F);
         }
