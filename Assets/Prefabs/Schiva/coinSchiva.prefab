@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1108365220737316352}
   - component: {fileID: 6442670544511968808}
   m_Layer: 0
-  m_Name: coinGold
+  m_Name: coinSchiva
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,8 +105,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3464102, y: 0.4, z: 0.10000002}
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Size: {x: 0.3464102, y: 0.4, z: 0.27160835}
+  m_Center: {x: 0, y: 0.2, z: -0.0046129227}
 --- !u!54 &6442670544511968808
 Rigidbody:
   m_ObjectHideFlags: 0

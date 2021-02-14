@@ -38,6 +38,5 @@ public class CoinsManagerBackOff : MonoBehaviour{
             .GetComponent<CoinBackOff>()
             .gameManager = this.gameManager;
             
-
     }
 }

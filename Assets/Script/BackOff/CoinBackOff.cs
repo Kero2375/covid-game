@@ -6,7 +6,7 @@ public class CoinBackOff : MonoBehaviour {
     public GameManager gameManager;
 
     private void Start() {
-        Invoke("AutoDestroy", 7F);
+        StartCoroutine(AutoDestroy());
     }
 
     // Update is called once per frame
@@ -26,7 +26,8 @@ public class CoinBackOff : MonoBehaviour {
         }
     }
 
-    private void AutoDestroy() {
+    private IEnumerator AutoDestroy() {
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 
