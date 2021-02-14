@@ -97,6 +97,7 @@ public abstract class GameManager : MonoBehaviour {
         return points;
     }
     public void playDamageTaken() {
+        Debug.Log(soundOn);
         if (soundOn) {
             AudioSource.PlayClipAtPoint(damageSound, GameObject.Find("Main Camera").transform.position, 0.05F);
         }

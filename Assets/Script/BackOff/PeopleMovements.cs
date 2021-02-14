@@ -11,22 +11,32 @@ public class PeopleMovements : MonoBehaviour {
     private void Start() {
         Material mat = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
         SaveData.ApplyMask(ref mat);
-        Vector3 random = new Vector3(
-            (floor.bounds.size.x - .4F) * Random.value,
+
+        //Zona di sicurezza ai margini (per evitare che si blocchino fuori)
+        Vector3 safeZone = new Vector3(1F, 0, 1F);
+
+        //Calcolo la dimensione del pavimento (* scala)
+        float xSize = floor.bounds.size.x * transform.lossyScale.x;
+        float zSize = floor.bounds.size.z * transform.lossyScale.z;
+
+        //Trovo una posizione random (relativa) all'interno
+        Vector3 randomPositionInsideRect = new Vector3(
+            (xSize - 2*safeZone.x) * Random.value,
             0,
-            (floor.bounds.size.z - .4F) * Random.value);
-        target = floor.transform.position + random;
+            (zSize - 2*safeZone.z) * Random.value);
+
+        //Calcolo la posizione (assoluta) a partire dalla posizione del floor
+        target = (floor.transform.position + safeZone) + randomPositionInsideRect;
     }
 
     void Update() {
         if( Mathf.Abs(transform.position.x - target.x) > .2F &&
-            Mathf.Abs(transform.position.z - target.z) > .2F) { //se arrivato vicino al punto target
+            Mathf.Abs(transform.position.z - target.z) > .2F) { //Se non arrivato vicino al punto target
             GetComponent<Animator>().SetBool("idle", false);
             transform.LookAt(target);
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                target,
-                direction * Time.deltaTime);   
+
+            GetComponent<Rigidbody>().AddRelativeForce(0, 0, 30);
+
         } else {
             GetComponent<Animator>().SetBool("idle", true);
         }
