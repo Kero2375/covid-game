@@ -31,10 +31,7 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
     }
 
     IEnumerator TutorialText() {
-        textPopup.text = "Tutorial";
-        popup.SetActive(true);
-        yield return new WaitForSeconds(4);
-        textPopup.text = "In questo gioco dovrai mettere le mascherine alle persone che vengono incontro";
+        textPopup.text = "Metti le mascherine alle persone che ti vengono incontro";
         yield return new WaitForSeconds(4);
         popup.SetActive(false);
     }
@@ -47,7 +44,7 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
         if (firstPerson) {
             if (firstPerson.transform.position.z > 12 && firstPerson.transform.position.z < 20 && !hasTapped) {
                 Time.timeScale = 0;
-                textPopup.text = "Esegui un tap sul personaggio per mettere la mascherina.";
+                textPopup.text = "Tocca il personaggio per mettere la mascherina.";
                 popup.SetActive(true);
                 hand.SetActive(true);
                 hasTapped = true;
@@ -67,7 +64,7 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
 
         if (!firstPerson && secondPerson) {
             if(secondPerson.transform.position.z > 40  && secondPerson.transform.position.z < 90) {
-                textPopup.text = "Attenzione, non mettere una mascherina a chi la ha già, perderai una vita.";
+                textPopup.text = "Attenzione, non mettere una mascherina a chi la ha già altrimenti perderai una vita.";
                 popup.SetActive(true);
             }
 

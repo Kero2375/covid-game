@@ -31,18 +31,14 @@ public class TutorialManagerBackOff : MonoBehaviour {
     }
 
     IEnumerator TutorialText() {
-        textPopup.text = "Tutorial";
+        textPopup.text = "Tieni fuori le persone dalla tua stanza, in modo da evitare assembramenti";
         popup.SetActive(true);
-        yield return new WaitForSeconds(2);
-        textPopup.text = "Lo scopo di questo gioco è quello di tenere fuori le persone dalla stanza, in modo da evitare assembramenti";
         yield return new WaitForSeconds(5);
-        popup.SetActive(false);
-        yield return new WaitForSeconds(2);
         person.SetActive(true);
     }
 
     IEnumerator SixPeople() {
-        textPopup.text = "Attenzione, la stanza può contenere al massimo 5 persone, inizierai a perdere vite se ci saranno più di 5 persone dentro la stanza";
+        textPopup.text = "Attenzione! La stanza può contenere al massimo 5 persone, dopo inizierai a perdere vite";
         yield return new WaitForSecondsRealtime(5);
         spawnedSixPeople = true;
     }
@@ -59,10 +55,8 @@ public class TutorialManagerBackOff : MonoBehaviour {
                 person.GetComponent<PeopleGrabber>().enabled = true;
                 person.GetComponent<PeopleGrabber>().SetMovable();
 
-                textPopup.text = "Sposta il personaggio toccandolo ed eseguendo uno swipe verso l'esterno della stanza";
+                textPopup.text = "Sposta le persone toccandole ed eseguendo uno swipe verso l'esterno della stanza";
                 popup.SetActive(true);
-
-                popup.transform.position = new Vector3(popup.transform.position.x, newYPos, popup.transform.position.z);
 
                 hand.SetActive(true);
                 hand.transform.Translate(new Vector3(20, 80, 0) * Time.unscaledDeltaTime);
@@ -118,6 +112,7 @@ public class TutorialManagerBackOff : MonoBehaviour {
         }
 
         if (hasSwipped && secondSwipe) {
+            hand.SetActive(false);
             StartCoroutine(WaitSomeSecond());
             textPopup.text = "Complimenti, hai completato il tutorial!";
             popup.SetActive(true);

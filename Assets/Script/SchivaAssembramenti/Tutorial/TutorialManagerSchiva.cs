@@ -39,12 +39,6 @@ public class TutorialManagerSchiva : MonoBehaviour {
 
             }
         }
-        
-        //Faccio vedere il popup con scritto "tutorial"
-        if (player.position.z <= 30F) {
-            popup.transform.GetChild(0).GetComponent<Text>().text = "Tutorial";
-            popup.SetActive(true);
-        }
 
         //Tolgo il popup
         if(player.position.z >= 30F) {
@@ -58,7 +52,7 @@ public class TutorialManagerSchiva : MonoBehaviour {
                 Time.timeScale = 0; //stop al tempo
                 hand.SetActive(true); //attiva la grafica della mano
                 popup.SetActive(true);
-                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso destra per schivare l'assembramento";
+                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso destra per evitare l'assembramento";
 
                 //Animazione mano
                 hand.transform.Rotate(new Vector3(0, 0, -30 * Time.unscaledDeltaTime)); //inizia la rotazione della mano
@@ -90,7 +84,7 @@ public class TutorialManagerSchiva : MonoBehaviour {
                 Time.timeScale = 0;
                 hand.SetActive(true);
                 popup.SetActive(true);
-                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso sinistra per schivare l'assembramento";
+                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso sinistra per evitare l'assembramento";
                 hand.transform.Rotate(new Vector3(0, 0, 30 * Time.unscaledDeltaTime));
                 if (hand.transform.rotation.z >= .3F) {
                     hand.transform.rotation = new Quaternion();
@@ -117,7 +111,7 @@ public class TutorialManagerSchiva : MonoBehaviour {
                 Time.timeScale = 0;
                 hand.SetActive(true);           
                 popup.SetActive(true);
-                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso l'alto per saltare il tombino";
+                popup.transform.GetChild(0).GetComponent<Text>().text = "Esegui uno swipe verso l'alto per saltare gli ostacoli";
                 hand.transform.Translate(new Vector3(0, 80 * Time.unscaledDeltaTime, 0));
                 if (hand.GetComponent<RectTransform>().anchoredPosition.y >= 250F) {
                     hand.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
@@ -137,7 +131,7 @@ public class TutorialManagerSchiva : MonoBehaviour {
 
         if(player.transform.position.z >= 130 && player.transform.position.z <= 150) {
             popup.SetActive(true);
-            popup.transform.GetChild(0).GetComponent<Text>().text = "Ogni volta che ti scontri con un ostacolo, perdi una vita, non arrivare mai a zero";
+            popup.transform.GetChild(0).GetComponent<Text>().text = "Quando ti scontri con un ostacolo, perdi una vita... cerca di non arrivare a zero!";
         }
 
         if (player.transform.position.z >= 150 && player.transform.position.z <= 170) {
