@@ -9,6 +9,9 @@ public class CoinsManager : MonoBehaviour {
 
     private Spawner spawner = new Spawner();
 
+
+    private float[] lanes = { -6F, -3F, 0F, 3F, +6F };
+
     // Start is called before the first frame update
     void Start() {
         InvokeRepeating("Spawn", 0, 5F);

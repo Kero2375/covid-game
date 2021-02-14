@@ -10,9 +10,15 @@ public class Coin : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         transform.Rotate(new Vector3(0, 200 * Time.deltaTime, 0));
-        if (transform.position.z <= playerTransform.position.z - 20) {
-            Destroy(gameObject);
+        if (playerTransform) {
+            if (transform.position.z <= playerTransform.position.z - 20) {
+                Destroy(gameObject);
+            }
         }
+    }
+
+    public void DestroyCoin() {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other) {
