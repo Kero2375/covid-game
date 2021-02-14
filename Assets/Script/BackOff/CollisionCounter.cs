@@ -25,7 +25,6 @@ public class CollisionCounter : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("Collided with" + other.name);
         count++;
     }
 
@@ -37,7 +36,7 @@ public class CollisionCounter : MonoBehaviour {
         damaging = true;
         yield return new WaitForSeconds(seconds);
         try {
-            gameManager.DecreaseLifes();
+            //gameManager.DecreaseLifes();
         } catch { }
         damaging = false;
     }

@@ -8,9 +8,16 @@ public class PeopleGrabber : MonoBehaviour {
     private float posY;
     private bool moveEnabled = false;
 
+    private Vector3 startPos;
+    private Vector3 throwForce = Vector3.zero;
+
     void Start() {
         plane = new Plane(Vector3.up, Vector3.zero);
         posY = transform.position.y;
+    }
+
+    private void Update() {
+        GetComponent<Rigidbody>().AddForce(throwForce * 20);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -44,4 +51,17 @@ public class PeopleGrabber : MonoBehaviour {
             posY,
             pos.z);
     }
+
+    private void OnMouseDown() {
+        startPos = transform.position;
+
+    }
+
+    private void OnMouseUp() {
+        Vector3 start = new Vector3(startPos.x, 0, startPos.z);
+        Vector3 end = new Vector3(transform.position.x, 0, transform.position.z);
+
+        throwForce = end - start;
+    }
+
 }
