@@ -11,10 +11,10 @@ public class GameManagerMask : GameManager {
 
     public override void Update() {
         base.Update();
-
+        
         //Non fare niente se in pausa
-        Pause pausePanel = GameObject.Find("Pause").GetComponent<Pause>();
-        if (pausePanel && pausePanel.paused)
+        GameObject pausePanel = GameObject.Find("Pause");
+        if (pausePanel && pausePanel.GetComponent<Pause>().paused)
             return;
 
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) {

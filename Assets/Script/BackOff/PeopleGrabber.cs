@@ -31,8 +31,8 @@ public class PeopleGrabber : MonoBehaviour {
 
     private void OnMouseDrag() {
         //Non fare niente se in pausa
-        Pause pausePanel = GameObject.Find("Pause").GetComponent<Pause>();
-        if (pausePanel && pausePanel.paused)
+        GameObject pausePanel = GameObject.Find("Pause");
+        if (pausePanel && pausePanel.GetComponent<Pause>().paused)
             return;
 
         if (!moveEnabled) 
