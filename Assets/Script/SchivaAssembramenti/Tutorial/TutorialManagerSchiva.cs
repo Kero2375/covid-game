@@ -18,7 +18,6 @@ public class TutorialManagerSchiva : MonoBehaviour {
     bool swippedR = false;
     bool swippedL = false;
     bool swippedUp = false;
-    bool coinTaken = false;
 
     public AudioClip coinSound;
     public AudioClip jumpSound;
@@ -145,18 +144,8 @@ public class TutorialManagerSchiva : MonoBehaviour {
             popup.SetActive(false);
         }
 
-        if (player.transform.position.z >= 180) {
-            point.GetComponent<Text>().text = "1";
-        }
-
-        if (player.transform.position.z >= 170 && player.transform.position.z <= 200) {
-            popup.transform.GetChild(0).GetComponent<Text>().text = "Prendi più monete possibili, ti permettono di ottenere più punti";
-            popup.SetActive(true);
-            coinTaken = true;          
-        }
-
         //Carico la scena del gioco vero e proprio
-        if (swippedL && swippedR && swippedUp && coinTaken && player.transform.position.z >= 210) {
+        if (swippedL && swippedR && swippedUp && player.transform.position.z >= 170) {
             popup.transform.GetChild(0).GetComponent<Text>().text = "Ottimo lavoro, hai completato il tutorial!";
             popup.SetActive(true);
             StartCoroutine(waitLoadScene());
