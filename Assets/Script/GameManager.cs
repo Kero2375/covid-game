@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public abstract class GameManager : MonoBehaviour {
 
     public AudioClip damageSound;
+    public AudioClip coinSound;
 
     public GameObject gameOver;
     public GameObject pointsUI;
@@ -99,6 +100,12 @@ public abstract class GameManager : MonoBehaviour {
     public void playDamageTaken() {
         if (soundOn) {
             AudioSource.PlayClipAtPoint(damageSound, GameObject.Find("Main Camera").transform.position, 0.05F);
+        }
+    }
+
+    public void playCoinTaken() {
+        if (soundOn) {
+            AudioSource.PlayClipAtPoint(coinSound, GameObject.Find("Main Camera").transform.position, 0.1F);
         }
     }
 

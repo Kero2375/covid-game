@@ -37,6 +37,10 @@ public class GameManagerMask : GameManager {
                     } else {                     
                         DecreaseLifes();
                     }
+                }else if (hit.collider.CompareTag("Coin")) {
+                    AddPoints();
+                    playCoinTaken();
+                    hit.collider.GetComponent<Coin>().DestroyCoin();
                 }
             }
         }
