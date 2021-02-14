@@ -8,6 +8,8 @@ public static class SaveData {
     private static bool musicOn, soundOn;
     private static int selectedMask = 0;
 
+    private static int firstAccess = 1;
+
     public enum GAMES {
         EvitaAssembramenti,
         MettiLaMascherina,
@@ -83,10 +85,27 @@ public static class SaveData {
     }
 
     public static void Load() {
+        LoadFirstAccess(); //Check se è il primo accesso
         LoadPoints();
         LoadTutorial();
         LoadColor();
         LoadMusicSoundPreferences();
+        PlayerPrefs.SetInt("FirstAccess", 0);
+    }
+
+    private static void LoadFirstAccess() {
+        //GetInt("FirstAccess",1) -> Se first Access non c'è(vuol dire che è la prima volta che entro)
+        //mi ritorna 1
+        if (PlayerPrefs.GetInt("FirstAccess",1) == 1) {
+            firstAccess = 1;
+        } else {
+            firstAccess = 0;
+        }
+        
+    }
+
+    public static void FirstAccess() {
+        PlayerPrefs.SetInt("FirstAccess", 1);
     }
 
     private static void LoadPoints() {
@@ -123,11 +142,16 @@ public static class SaveData {
     }
 
     private static void LoadMusicSoundPreferences() {
-        Debug.Log("Music" + PlayerPrefs.GetInt("Music"));
+        if (firstAccess == 1) {
+            musicOn = true;
+            soundOn = true;
+            PlayerPrefs.SetInt("Music", 1);
+            PlayerPrefs.SetInt("Sound", 1);
 
-        Debug.Log("Sound" + PlayerPrefs.GetInt("Sound"));
-        musicOn = PlayerPrefs.GetInt("Music") > 0 ? true : false;
-        soundOn = PlayerPrefs.GetInt("Sound") > 0 ? true : false;
+        } else {
+            musicOn = PlayerPrefs.GetInt("Music") > 0 ? true : false;
+            soundOn = PlayerPrefs.GetInt("Sound") > 0 ? true : false;
+        }
     }
 
     //Quando chiamato, modifico l'array di colori passato (ref)
