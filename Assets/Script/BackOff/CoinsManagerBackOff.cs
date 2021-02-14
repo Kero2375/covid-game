@@ -6,8 +6,8 @@ public class CoinsManagerBackOff : MonoBehaviour{
 
     public GameObject[] coinPrefabs;
     public GameManagerBackOff gameManager;
-    private Spawner spawner = new Spawner();
 
+    private Spawner spawner = new Spawner();
     public MeshRenderer floor;
 
     void Start(){
@@ -15,26 +15,29 @@ public class CoinsManagerBackOff : MonoBehaviour{
     }
 
     void Spawn() {
-        Plane plane = new Plane(Vector3.up, Vector3.zero);
+        //Zona di sicurezza ai margini (per evitare che si blocchino fuori)
+        Vector3 safeZone = new Vector3(1F, 0, 1F);
 
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(
-            Random.Range(0, 2),
-            Random.value,
-            0));
+        //Calcolo la dimensione del pavimento (* scala)
+        float xSize = floor.bounds.size.x * transform.lossyScale.x;
+        float zSize = floor.bounds.size.z * transform.lossyScale.z;
 
-        plane.Raycast(ray, out float distance);
+        //Trovo una posizione random (relativa) all'interno
+        Vector3 randomPositionInsideRect = new Vector3(
+            (xSize - 2 * safeZone.x) * Random.value,
+            0,
+            (zSize - 2 * safeZone.z) * Random.value);
 
-        Vector3 pos = ray.GetPoint(distance);
+        //Calcolo la posizione (assoluta) a partire dalla posizione del floor
+        Vector3 target = (floor.transform.position + safeZone) + randomPositionInsideRect;
 
         spawner
             .Spawn(coinPrefabs, "Coin")
-            .SetPosition(
-                pos.x,
-                null,
-                pos.z)
+            .SetPosition(target.x, target.y, target.z)
             .GetObject()
-            .GetComponent<PeopleMovements>()
-            .floor = this.floor;
+            .GetComponent<CoinBackOff>()
+            .gameManager = this.gameManager;
+            
 
     }
 }

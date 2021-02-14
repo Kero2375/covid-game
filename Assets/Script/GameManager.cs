@@ -109,6 +109,4 @@ public abstract class GameManager : MonoBehaviour {
             AudioSource.PlayClipAtPoint(coinSound, GameObject.Find("Main Camera").transform.position, 0.1F);
         }
     }
-
-
 }
