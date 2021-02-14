@@ -38,7 +38,7 @@ public class CollisionCounter : MonoBehaviour {
         damaging = true;
         yield return new WaitForSeconds(seconds);
         try {
-            //gameManager.DecreaseLifes();
+            gameManager.DecreaseLifes();
         } catch { }
         damaging = false;
     }
