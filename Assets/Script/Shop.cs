@@ -96,17 +96,17 @@ public class Shop : MonoBehaviour {
     private void Populate() {
         ShopColor[] colors = {
             new ShopColor("azzurro",    0, true),
-            new ShopColor("verde",      100),
-            new ShopColor("arancione",  100),
-            new ShopColor("rosso",      100),
-            new ShopColor("rosa",       100),
-            new ShopColor("giallo",     100),
-            new ShopColor("oliva",      100),
-            new ShopColor("viola",      100),
-            new ShopColor("blu",        100),
-            new ShopColor("bianco",     100),
-            new ShopColor("nero",       100),
-            new ShopColor("rainbow",    100)
+            new ShopColor("verde",      300),
+            new ShopColor("arancione",  300),
+            new ShopColor("rosso",      500),
+            new ShopColor("rosa",       500),
+            new ShopColor("giallo",     500),
+            new ShopColor("oliva",      700),
+            new ShopColor("viola",      700),
+            new ShopColor("blu",        700),
+            new ShopColor("bianco",     1000),
+            new ShopColor("nero",       1200),
+            new ShopColor("rainbow",    1500)
         };
         this.colors = colors;
     }
