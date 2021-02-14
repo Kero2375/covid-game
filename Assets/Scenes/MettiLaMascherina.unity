@@ -497,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSound: {fileID: 8300000, guid: 054fec76d07c0b54387899c93c1310a6, type: 3}
+  coinSound: {fileID: 8300000, guid: 850f0d9489ca79549b6e5e86a6768fb6, type: 3}
   gameOver: {fileID: 1853861545}
   pointsUI: {fileID: 1853861544}
   music: {fileID: 1942437970}

@@ -25,11 +25,13 @@ public class CollisionCounter : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        count++;
+        if (other.name.Contains("Person"))
+            count++;
     }
 
     private void OnTriggerExit(Collider other) {
-        count--;
+        if(other.name.Contains("Person"))
+            count--;
     }
 
     IEnumerator DamageCroutine() {
