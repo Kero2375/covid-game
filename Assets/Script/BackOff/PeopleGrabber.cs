@@ -17,7 +17,7 @@ public class PeopleGrabber : MonoBehaviour {
     }
 
     private void Update() {
-        GetComponent<Rigidbody>().AddForce(throwForce * 20);
+        GetComponent<Rigidbody>().AddForce(throwForce * 2000 * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other) {

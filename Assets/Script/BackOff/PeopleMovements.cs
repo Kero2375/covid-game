@@ -35,7 +35,7 @@ public class PeopleMovements : MonoBehaviour {
             GetComponent<Animator>().SetBool("idle", false);
             transform.LookAt(target);
 
-            GetComponent<Rigidbody>().AddRelativeForce(0, 0, 30);
+            GetComponent<Rigidbody>().AddRelativeForce(0, 0, 3000 * Time.deltaTime);
 
         } else {
             GetComponent<Animator>().SetBool("idle", true);
