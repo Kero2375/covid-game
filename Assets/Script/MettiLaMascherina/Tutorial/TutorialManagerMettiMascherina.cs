@@ -40,7 +40,6 @@ public class TutorialManagerMettiMascherina : MonoBehaviour{
     }
 
     IEnumerator SetPopupTextAndWait(string s) {
-        
         yield return new WaitForSeconds(4);     
     }
     // Update is called once per frame

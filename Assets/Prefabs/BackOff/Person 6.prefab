@@ -64,7 +64,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
       propertyPath: m_Name
-      value: Person 2
+      value: Person 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d042ffeb24165424fb89b614410a89cc, type: 2}
+      objectReference: {fileID: 2100000, guid: ceb9a5d555573be42b4d2bd248ddc3c8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db7e17401e08b94697ecd7acce75ab1, type: 3}
 --- !u!1 &8314647413581561551 stripped

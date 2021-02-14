@@ -1219,6 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSound: {fileID: 8300000, guid: 054fec76d07c0b54387899c93c1310a6, type: 3}
+  coinSound: {fileID: 8300000, guid: 850f0d9489ca79549b6e5e86a6768fb6, type: 3}
   gameOver: {fileID: 1034298085}
   pointsUI: {fileID: 2145519701}
   music: {fileID: 1923661355}
@@ -4119,7 +4120,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 38cb763c7a5db3d408505e9d6342a566, type: 2}
+  - {fileID: 2100000, guid: 46aa19f5ea4732e42a862a5d65734807, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6552,7 +6553,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2779bb7b94592946a08aa557bd37d10, type: 2}
+  - {fileID: 2100000, guid: 31fbd9f1e4d569e479b6d10857daf935, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8250,7 +8251,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3fad97ead82abd24b86119ccb605ed05, type: 2}
+  - {fileID: 2100000, guid: d042ffeb24165424fb89b614410a89cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

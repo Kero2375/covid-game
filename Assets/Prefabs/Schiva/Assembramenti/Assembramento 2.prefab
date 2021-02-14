@@ -3232,8 +3232,7 @@ SkinnedMeshRenderer:
   m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a2779bb7b94592946a08aa557bd37d10, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3754,6 +3753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699872189409690751}
   - component: {fileID: 699872189409690748}
+  - component: {fileID: 1425586048484322931}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -3796,6 +3796,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1425586048484322931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699872189409690750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47742cc2292bebf4e9b88d1d9c7cb2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &699872189427297308
 GameObject:
   m_ObjectHideFlags: 0
@@ -4085,6 +4097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699872189538992107}
   - component: {fileID: 699872189538992104}
+  - component: {fileID: 2385920068880327861}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -4127,6 +4140,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2385920068880327861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699872189538992106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47742cc2292bebf4e9b88d1d9c7cb2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &699872189539112039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4545,8 +4570,7 @@ SkinnedMeshRenderer:
   m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 3fad97ead82abd24b86119ccb605ed05, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5625,6 +5649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699872190008224930}
   - component: {fileID: 699872190008224931}
+  - component: {fileID: 1017578598385338206}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -5667,6 +5692,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1017578598385338206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699872190008224933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47742cc2292bebf4e9b88d1d9c7cb2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &699872190010675276
 GameObject:
   m_ObjectHideFlags: 0
@@ -5993,8 +6030,7 @@ SkinnedMeshRenderer:
   m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 51f876ce6a20be248a084b12521a73e0, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

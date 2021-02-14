@@ -549,7 +549,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51f876ce6a20be248a084b12521a73e0, type: 2}
+  - {fileID: 2100000, guid: e5c6f6207264d124383179c00bd0686a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2050,6 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  haveMask: 0
 --- !u!95 &4630093757544111374
 Animator:
   serializedVersion: 3

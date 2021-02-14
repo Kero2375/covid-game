@@ -4,6 +4,7 @@ using UnityEngine;
 
 enum Dir { None, Left, Right };
 public class Movement : Swipable {
+
     //Parametri pubblici
     public float speed = 10;
     public int jumpForceFactor = 300;
@@ -12,11 +13,6 @@ public class Movement : Swipable {
     readonly Lane lane = new Lane(1);
     Dir moving = Dir.None;
     private bool jumping = false;
-
-    private void Start() {
-        Material mat = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
-        SaveData.ApplyMask(ref mat);
-    }
 
     override protected void Update() {
         base.Update();

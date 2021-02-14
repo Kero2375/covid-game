@@ -549,7 +549,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d042ffeb24165424fb89b614410a89cc, type: 2}
+  - {fileID: 2100000, guid: b694b1dc63498ef47a881b821a564310, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2000,9 +2000,9 @@ GameObject:
   - component: {fileID: 5126246524094193801}
   - component: {fileID: 1756554853602177154}
   - component: {fileID: 4630093757544111374}
-  - component: {fileID: -1368529538259194528}
+  - component: {fileID: -8204450397119902705}
   m_Layer: 0
-  m_Name: People2
+  m_Name: People4
   m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2070,7 +2070,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &-1368529538259194528
+--- !u!54 &-8204450397119902705
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
