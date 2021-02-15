@@ -59,7 +59,8 @@ public class TutorialManagerBackOff : MonoBehaviour {
                 popup.SetActive(true);
 
                 hand.SetActive(true);
-                hand.transform.Translate(new Vector3(20, 80, 0) * Time.unscaledDeltaTime);
+                Debug.Log(Time.unscaledDeltaTime);
+                hand.transform.Translate(new Vector3(30, 80, 0) * Time.unscaledDeltaTime);
                 if (hand.GetComponent<RectTransform>().anchoredPosition.y >= 250F) {
                     hand.GetComponent<RectTransform>().anchoredPosition = new Vector3(120F, 0, 0);
                 }
@@ -100,7 +101,7 @@ public class TutorialManagerBackOff : MonoBehaviour {
                         }
 
                         hand.SetActive(true);
-                        hand.transform.Translate(new Vector3(20, 80, 0) * Time.unscaledDeltaTime);
+                        hand.transform.Translate(new Vector3(30, 80, 0) * Time.unscaledDeltaTime);
                         if (hand.GetComponent<RectTransform>().anchoredPosition.y >= 200F) {
                             hand.GetComponent<RectTransform>().anchoredPosition = new Vector3(100F, -30F, 0);
                         }
