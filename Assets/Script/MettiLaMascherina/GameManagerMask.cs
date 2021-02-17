@@ -27,12 +27,12 @@ public class GameManagerMask : GameManager {
             if (Physics.Raycast(raycast, out hit)) {
                 if (hit.collider.CompareTag("Person")) {
                     //Controllo se il personaggio ha la maschera o no
-                    if (!hit.collider.GetComponent<PeopleMovement>().hasMask()) {
+                    if (!hit.collider.GetComponent<PeopleMovementPutTheMask>().hasMask()) {
                         //Prendo la skin del personaggio
                         Material m = hit.collider.GetComponentInChildren<SkinnedMeshRenderer>().material;
                         //Metto la maschera al personaggio
                         SaveData.ApplyMask(ref m);
-                        hit.collider.GetComponent<PeopleMovement>().putMask();
+                        hit.collider.GetComponent<PeopleMovementPutTheMask>().putMask();
                         playPutMask();
                     } else {                     
                         DecreaseLifes();

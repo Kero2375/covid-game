@@ -2046,10 +2046,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7934403313697991477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07380ca602dae934cbdf1dbf54e29f8f, type: 3}
+  m_Script: {fileID: 11500000, guid: db5da2f14ee291e4a95afeb9336ae155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 10
   haveMask: 0
 --- !u!95 &4630093757544111374
 Animator:

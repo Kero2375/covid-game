@@ -59,7 +59,6 @@ public class TutorialManagerBackOff : MonoBehaviour {
                 popup.SetActive(true);
 
                 hand.SetActive(true);
-                Debug.Log(Time.unscaledDeltaTime);
                 hand.transform.Translate(new Vector3(30, 80, 0) * Time.unscaledDeltaTime);
                 if (hand.GetComponent<RectTransform>().anchoredPosition.y >= 250F) {
                     hand.GetComponent<RectTransform>().anchoredPosition = new Vector3(120F, 0, 0);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeopleMovement : MonoBehaviour{
+public class PeopleMovementPutTheMask : MonoBehaviour{
    
     public float speed;
     public bool haveMask = false;

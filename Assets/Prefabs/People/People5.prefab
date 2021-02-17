@@ -1998,9 +1998,9 @@ GameObject:
   m_Component:
   - component: {fileID: 197406440194147106}
   - component: {fileID: 5126246524094193801}
-  - component: {fileID: 1756554853602177154}
   - component: {fileID: 4630093757544111374}
   - component: {fileID: -8204450397119902705}
+  - component: {fileID: 5276516821170268047}
   m_Layer: 0
   m_Name: People5
   m_TagString: Person
@@ -2037,20 +2037,6 @@ CapsuleCollider:
   m_Height: 5.1236353
   m_Direction: 1
   m_Center: {x: 0.015095466, y: 2.1969962, z: 0.12963563}
---- !u!114 &1756554853602177154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7934403313697991477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07380ca602dae934cbdf1dbf54e29f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  haveMask: 0
 --- !u!95 &4630093757544111374
 Animator:
   serializedVersion: 3
@@ -2086,3 +2072,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5276516821170268047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934403313697991477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5da2f14ee291e4a95afeb9336ae155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  haveMask: 0

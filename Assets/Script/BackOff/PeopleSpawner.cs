@@ -42,7 +42,7 @@ public class PeopleSpawner : MonoBehaviour {
                 null,
                 pos.z)
             .GetObject()
-            .GetComponent<PeopleMovements>()
+            .GetComponent<PeopleMovementBackOff>()
             .floor = this.floor;
     }
 }

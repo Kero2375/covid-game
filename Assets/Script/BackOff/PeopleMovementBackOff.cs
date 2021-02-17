@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeopleMovements : MonoBehaviour {
+public class PeopleMovementBackOff : MonoBehaviour {
     public float direction = 1F;
     public MeshRenderer floor;
 
@@ -21,16 +21,16 @@ public class PeopleMovements : MonoBehaviour {
 
         //Trovo una posizione random (relativa) all'interno
         Vector3 randomPositionInsideRect = new Vector3(
-            (xSize - 2*safeZone.x) * Random.value,
+            (xSize - safeZone.x) * Random.value,
             0,
-            (zSize - 2*safeZone.z) * Random.value);
+            (zSize - safeZone.z) * Random.value);
 
         //Calcolo la posizione (assoluta) a partire dalla posizione del floor
         target = (floor.transform.position + safeZone) + randomPositionInsideRect;
     }
 
     void Update() {
-        if( Mathf.Abs(transform.position.x - target.x) > .2F &&
+        if( Mathf.Abs(transform.position.x - target.x) > .2F ||
             Mathf.Abs(transform.position.z - target.z) > .2F) { //Se non arrivato vicino al punto target
             GetComponent<Animator>().SetBool("idle", false);
             transform.LookAt(target);

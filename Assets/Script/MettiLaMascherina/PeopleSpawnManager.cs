@@ -37,10 +37,10 @@ public class PeopleSpawnManager : MonoBehaviour{
                 if (Random.value <= prob) { 
                     Material skin = spawner.GetObjectSpawned().GetObject().GetComponentInChildren<SkinnedMeshRenderer>().material;
                     SaveData.ApplyMask(ref skin);
-                    spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().putMask();
+                    spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovementPutTheMask>().putMask();
                 }
                 spawner.GetObjectSpawned().SetPosition(lanes[i], 0.6F, distanceFromPlayer + offset);
-                spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().speed = speed;
+                spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovementPutTheMask>().speed = speed;
 
             }
         } else {
@@ -52,10 +52,10 @@ public class PeopleSpawnManager : MonoBehaviour{
                 if (Random.value <= prob) {
                     Material skin = spawner.GetObjectSpawned().GetObject().GetComponentInChildren<SkinnedMeshRenderer>().material;
                     SaveData.ApplyMask(ref skin);
-                    spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().putMask();
+                    spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovementPutTheMask>().putMask();
                 }
                 spawner.GetObjectSpawned().SetPosition(randLane, 0.6F, distanceFromPlayer + offset);         
-                spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovement>().speed = speed;
+                spawner.GetObjectSpawned().GetObject().GetComponent<PeopleMovementPutTheMask>().speed = speed;
             }
         }          
     }
